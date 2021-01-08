@@ -18,9 +18,9 @@ class PrimaryButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title: String) {
+    convenience init(title: String, backgroundColor: UIColor) {
         self.init(frame: .zero)
-        self.backgroundColor = Colors.primaryColor
+        self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
     }
     

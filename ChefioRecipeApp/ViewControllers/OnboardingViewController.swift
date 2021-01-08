@@ -12,19 +12,24 @@ class OnboardingViewController: UIViewController {
     var imageView = UIImageView()
     var onboardingTitle = HeaderLabel()
     var onboardingDescription = BodyLabel(textAlignment: .center, fontSize: 17)
-    var actionButton = PrimaryButton(title: "Get Started")
+    var actionButton = PrimaryButton(title: "Get Started", backgroundColor: Colors.primaryColor)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         layoutUI()
+        
+        actionButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    @objc func buttonTapped() {
+        let signInVC = SignInViewController()
+        signInVC.modalPresentationStyle = .fullScreen
+        present(signInVC, animated: true, completion: nil)
     }
     
     func layoutUI() {
-        view.addSubview(imageView)
-        view.addSubview(onboardingTitle)
-        view.addSubview(onboardingDescription)
-        view.addSubview(actionButton)
+        view.addSubview(imageView, onboardingTitle, onboardingDescription, actionButton)
         
         imageView.image = Images.onboardingImage
         imageView.contentMode = .scaleAspectFill

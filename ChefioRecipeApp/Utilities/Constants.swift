@@ -18,4 +18,6 @@ enum Colors {
 
 enum Images {
     static let onboardingImage = UIImage(named: "Onboarding")
+    static let messageImage = UIImage(named: "Message")
+    static let lockImage = UIImage(named: "Lock")
 }

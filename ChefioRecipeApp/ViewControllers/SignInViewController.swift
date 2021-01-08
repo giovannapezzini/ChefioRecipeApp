@@ -11,39 +11,105 @@ class SignInViewController: UIViewController {
     
     var signInLabel = HeaderLabel()
     var signInDescription = BodyLabel()
+    var emailTextField = TextField()
+    var passwordTextField = TextField()
+    var forgotPasswordButton = UIButton()
     
-    var textField = TextField()
-
+    var stackView = UIStackView()
+    var stackView2 = UIStackView()
+    var stackView3 = UIStackView()
+    
+    var loginButton = PrimaryButton(title: "Login", backgroundColor: Colors.primaryColor)
+    var textLabel = BodyLabel()
+    var googleButton = PrimaryButton(title: "Google", backgroundColor: Colors.secondaryColor)
+    var anyAccountLabel = BodyLabel(textAlignment: .center, fontSize: 15)
+    var signUpButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        layoutUI()
+        configureLogin()
+        configureButtonsStackViews()
     }
     
-    func layoutUI() {
-        view.addSubview(signInLabel)
-        view.addSubview(signInDescription)
-        view.addSubview(textField)
+    func configureLogin() {
+        view.addSubview(signInLabel, signInDescription, emailTextField, passwordTextField, forgotPasswordButton)
         
         signInLabel.text = "Welcome Back!"
         signInDescription.text = "Please enter your account here"
-
-        textField.placeholder = "Email or phone number"
         
-        let image = UIImage(named: "Message");
-        textField.leftImage = image
+        let message = Images.messageImage
+        emailTextField.leftImage = message
+        emailTextField.placeholder = "Email or phone number"
+        
+        let lock = Images.lockImage
+        passwordTextField.leftImage = lock
+        passwordTextField.placeholder = "Password"
+        
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        forgotPasswordButton.setTitle("Forgot password?", for: .normal)
+        forgotPasswordButton.setTitleColor(Colors.mainTextColor, for: .normal)
+        forgotPasswordButton.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
         
         NSLayoutConstraint.activate([
-            signInLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            signInLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 86),
             signInLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             signInDescription.topAnchor.constraint(equalTo: signInLabel.bottomAnchor, constant: 8),
             signInDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            textField.topAnchor.constraint(equalTo: signInDescription.bottomAnchor, constant: 32),
-            textField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            textField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            textField.heightAnchor.constraint(equalToConstant: 56),
+            emailTextField.topAnchor.constraint(equalTo: signInDescription.bottomAnchor, constant: 32),
+            emailTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            emailTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            emailTextField.heightAnchor.constraint(equalToConstant: 56),
+            
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
+            passwordTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 56),
+            
+            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 24),
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 24),
+        ])
+    }
+    
+    func configureButtonsStackViews() {
+        view.addSubview(stackView)
+        
+        textLabel.text = "or continue with"
+        textLabel.textAlignment = .center
+        
+        anyAccountLabel.text = "Don’t have any account?"
+        anyAccountLabel.textColor = Colors.mainTextColor
+        anyAccountLabel.numberOfLines = 1
+
+        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.contentHorizontalAlignment = .left
+        signUpButton.setTitleColor(Colors.primaryColor, for: .normal)
+        signUpButton.titleLabel?.font = UIFont(name: "Inter-Bold", size: 15)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.addArrangedSubview(loginButton, textLabel, googleButton, stackView2)
+        
+        stackView2.axis = .vertical
+        stackView2.distribution = .fillEqually
+        stackView2.alignment = .center
+        stackView2.addArrangedSubview(stackView3)
+        
+        stackView3.axis = .horizontal
+        stackView3.alignment = .center
+        stackView3.distribution = .fill
+        stackView3.spacing = 5
+        stackView3.addArrangedSubview(anyAccountLabel, signUpButton)
+        
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            stackView.heightAnchor.constraint(equalToConstant: 260)
         ])
     }
 }

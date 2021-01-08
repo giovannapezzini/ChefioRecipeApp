@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85B25A81F1F0081386A /* AppDelegate.swift */; };
 		130DF85E25A81F1F0081386A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85D25A81F1F0081386A /* SceneDelegate.swift */; };
-		130DF86025A81F1F0081386A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85F25A81F1F0081386A /* ViewController.swift */; };
-		130DF86325A81F1F0081386A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 130DF86125A81F1F0081386A /* Main.storyboard */; };
-		130DF86525A81F240081386A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 130DF86425A81F240081386A /* Assets.xcassets */; };
+		130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85F25A81F1F0081386A /* OnboardingViewController.swift */; };
 		130DF86825A81F240081386A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 130DF86625A81F240081386A /* LaunchScreen.storyboard */; };
+		130DF87425A823E70081386A /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 130DF87225A823E70081386A /* Inter-Medium.ttf */; };
+		130DF87525A823E70081386A /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 130DF87325A823E70081386A /* Inter-Bold.ttf */; };
+		130DF87C25A8274C0081386A /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF87B25A8274C0081386A /* PrimaryButton.swift */; };
+		130DF88025A8279C0081386A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF87F25A8279C0081386A /* Constants.swift */; };
+		130DF88725A82C2D0081386A /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF88625A82C2D0081386A /* HeaderLabel.swift */; };
+		130DF89025A82D250081386A /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF88F25A82D250081386A /* BodyLabel.swift */; };
+		130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF89225A82DFA0081386A /* SignInViewController.swift */; };
+		130DF8A425A837140081386A /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF8A325A837140081386A /* TextField.swift */; };
+		13EB6F5325A83C3000ACE243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		130DF85825A81F1F0081386A /* ChefioRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefioRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		130DF85B25A81F1F0081386A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		130DF85D25A81F1F0081386A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		130DF85F25A81F1F0081386A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		130DF86225A81F1F0081386A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		130DF86425A81F240081386A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		130DF85F25A81F1F0081386A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		130DF86725A81F240081386A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		130DF86925A81F240081386A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		130DF87225A823E70081386A /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		130DF87325A823E70081386A /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		130DF87B25A8274C0081386A /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		130DF87F25A8279C0081386A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		130DF88625A82C2D0081386A /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
+		130DF88F25A82D250081386A /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
+		130DF89225A82DFA0081386A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		130DF8A325A837140081386A /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		13EB6F5225A83C3000ACE243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,78 @@
 		130DF85A25A81F1F0081386A /* ChefioRecipeApp */ = {
 			isa = PBXGroup;
 			children = (
-				130DF85B25A81F1F0081386A /* AppDelegate.swift */,
-				130DF85D25A81F1F0081386A /* SceneDelegate.swift */,
-				130DF85F25A81F1F0081386A /* ViewController.swift */,
-				130DF86125A81F1F0081386A /* Main.storyboard */,
-				130DF86425A81F240081386A /* Assets.xcassets */,
-				130DF86625A81F240081386A /* LaunchScreen.storyboard */,
+				130DF8A225A836F10081386A /* Text Fields */,
+				130DF88D25A82CE60081386A /* Utilities */,
+				130DF89725A82E530081386A /* ViewControllers */,
+				130DF88B25A82CCB0081386A /* Buttons */,
+				130DF88925A82CC20081386A /* Labels */,
+				130DF87125A822E50081386A /* Fonts */,
+				130DF89525A82E150081386A /* Support */,
 				130DF86925A81F240081386A /* Info.plist */,
 			);
 			path = ChefioRecipeApp;
+			sourceTree = "<group>";
+		};
+		130DF87125A822E50081386A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				130DF87325A823E70081386A /* Inter-Bold.ttf */,
+				130DF87225A823E70081386A /* Inter-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		130DF88925A82CC20081386A /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				130DF88625A82C2D0081386A /* HeaderLabel.swift */,
+				130DF88F25A82D250081386A /* BodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		130DF88B25A82CCB0081386A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				130DF87B25A8274C0081386A /* PrimaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		130DF88D25A82CE60081386A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				130DF87F25A8279C0081386A /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		130DF89525A82E150081386A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				130DF85B25A81F1F0081386A /* AppDelegate.swift */,
+				13EB6F5225A83C3000ACE243 /* Assets.xcassets */,
+				130DF85D25A81F1F0081386A /* SceneDelegate.swift */,
+				130DF86625A81F240081386A /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		130DF89725A82E530081386A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				130DF85F25A81F1F0081386A /* OnboardingViewController.swift */,
+				130DF89225A82DFA0081386A /* SignInViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		130DF8A225A836F10081386A /* Text Fields */ = {
+			isa = PBXGroup;
+			children = (
+				130DF8A325A837140081386A /* TextField.swift */,
+			);
+			path = "Text Fields";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				130DF86825A81F240081386A /* LaunchScreen.storyboard in Resources */,
-				130DF86525A81F240081386A /* Assets.xcassets in Resources */,
-				130DF86325A81F1F0081386A /* Main.storyboard in Resources */,
+				130DF87525A823E70081386A /* Inter-Bold.ttf in Resources */,
+				13EB6F5325A83C3000ACE243 /* Assets.xcassets in Resources */,
+				130DF87425A823E70081386A /* Inter-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				130DF86025A81F1F0081386A /* ViewController.swift in Sources */,
+				130DF88025A8279C0081386A /* Constants.swift in Sources */,
+				130DF89025A82D250081386A /* BodyLabel.swift in Sources */,
+				130DF88725A82C2D0081386A /* HeaderLabel.swift in Sources */,
+				130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */,
+				130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
+				130DF8A425A837140081386A /* TextField.swift in Sources */,
+				130DF87C25A8274C0081386A /* PrimaryButton.swift in Sources */,
 				130DF85E25A81F1F0081386A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +230,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		130DF86125A81F1F0081386A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				130DF86225A81F1F0081386A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		130DF86625A81F240081386A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giovannapezzini.ChefioRecipeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giovannapezzini.ChefioRecipeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

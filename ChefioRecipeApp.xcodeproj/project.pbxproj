@@ -19,7 +19,7 @@
 		130DF89025A82D250081386A /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF88F25A82D250081386A /* BodyLabel.swift */; };
 		130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF89225A82DFA0081386A /* SignInViewController.swift */; };
 		130DF8A425A837140081386A /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF8A325A837140081386A /* TextField.swift */; };
-		13EB6F5325A83C3000ACE243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
+		1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,6 @@
 		130DF85D25A81F1F0081386A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		130DF85F25A81F1F0081386A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		130DF86725A81F240081386A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		130DF86925A81F240081386A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		130DF87225A823E70081386A /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		130DF87325A823E70081386A /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		130DF87B25A8274C0081386A /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		130DF88F25A82D250081386A /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
 		130DF89225A82DFA0081386A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		130DF8A325A837140081386A /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ChefioRecipeApp/Info.plist; sourceTree = "<group>"; };
 		13EB6F5225A83C3000ACE243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +54,7 @@
 		130DF84F25A81F1F0081386A = {
 			isa = PBXGroup;
 			children = (
+				13268B1225A841FC00E49EDF /* Info.plist */,
 				130DF85A25A81F1F0081386A /* ChefioRecipeApp */,
 				130DF85925A81F1F0081386A /* Products */,
 			);
@@ -77,7 +78,6 @@
 				130DF88925A82CC20081386A /* Labels */,
 				130DF87125A822E50081386A /* Fonts */,
 				130DF89525A82E150081386A /* Support */,
-				130DF86925A81F240081386A /* Info.plist */,
 			);
 			path = ChefioRecipeApp;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */,
 				130DF86825A81F240081386A /* LaunchScreen.storyboard in Resources */,
 				130DF87525A823E70081386A /* Inter-Bold.ttf in Resources */,
-				13EB6F5325A83C3000ACE243 /* Assets.xcassets in Resources */,
 				130DF87425A823E70081386A /* Inter-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

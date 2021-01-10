@@ -22,6 +22,7 @@
 		1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
 		1335EA5625A8586100024059 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5525A8586100024059 /* UIView+Ext.swift */; };
 		1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5825A8589E00024059 /* UIStackView+Ext.swift */; };
+		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ChefioRecipeApp/Info.plist; sourceTree = "<group>"; };
 		1335EA5525A8586100024059 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1335EA5825A8589E00024059 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13EB6F5225A83C3000ACE243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,9 +77,9 @@
 		130DF85A25A81F1F0081386A /* ChefioRecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				130DF88D25A82CE60081386A /* Utilities */,
 				1335EA4F25A8582500024059 /* Extensions */,
 				130DF8A225A836F10081386A /* Text Fields */,
-				130DF88D25A82CE60081386A /* Utilities */,
 				130DF89725A82E530081386A /* ViewControllers */,
 				130DF88B25A82CCB0081386A /* Buttons */,
 				130DF88925A82CC20081386A /* Labels */,
@@ -137,6 +139,7 @@
 			children = (
 				130DF85F25A81F1F0081386A /* OnboardingViewController.swift */,
 				130DF89225A82DFA0081386A /* SignInViewController.swift */,
+				135062A825AAF16300339668 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				130DF88725A82C2D0081386A /* HeaderLabel.swift in Sources */,
 				130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */,
 				130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */,
+				135062A925AAF16300339668 /* SignUpViewController.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,

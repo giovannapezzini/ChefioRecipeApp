@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,8 @@
 		1335EA5625A8586100024059 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5525A8586100024059 /* UIView+Ext.swift */; };
 		1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5825A8589E00024059 /* UIStackView+Ext.swift */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
+		135062AF25AAFEC100339668 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 135062AE25AAFEC100339668 /* GoogleService-Info.plist */; };
+		C01FA016FED36A50A99CE8E3 /* Pods_ChefioRecipeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB0FCEF4FE67F526D58AC0D /* Pods_ChefioRecipeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +41,15 @@
 		130DF88F25A82D250081386A /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
 		130DF89225A82DFA0081386A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		130DF8A325A837140081386A /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ChefioRecipeApp/Info.plist; sourceTree = "<group>"; };
+		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1335EA5525A8586100024059 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1335EA5825A8589E00024059 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		135062AE25AAFEC100339668 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13EB6F5225A83C3000ACE243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FEA4DBFD4583F964314D7EB /* Pods-ChefioRecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefioRecipeApp.release.xcconfig"; path = "Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp.release.xcconfig"; sourceTree = "<group>"; };
+		D279F4B744C889FEA76E19B7 /* Pods-ChefioRecipeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefioRecipeApp.debug.xcconfig"; path = "Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DDB0FCEF4FE67F526D58AC0D /* Pods_ChefioRecipeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefioRecipeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01FA016FED36A50A99CE8E3 /* Pods_ChefioRecipeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +67,10 @@
 		130DF84F25A81F1F0081386A = {
 			isa = PBXGroup;
 			children = (
-				13268B1225A841FC00E49EDF /* Info.plist */,
 				130DF85A25A81F1F0081386A /* ChefioRecipeApp */,
 				130DF85925A81F1F0081386A /* Products */,
+				94946CEA719E1335E9B7CA92 /* Pods */,
+				E5E3630628CA0C24CA1B8CCF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +93,8 @@
 				130DF88925A82CC20081386A /* Labels */,
 				130DF87125A822E50081386A /* Fonts */,
 				130DF89525A82E150081386A /* Support */,
+				13268B1225A841FC00E49EDF /* Info.plist */,
+				135062AE25AAFEC100339668 /* GoogleService-Info.plist */,
 			);
 			path = ChefioRecipeApp;
 			sourceTree = "<group>";
@@ -161,6 +171,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		94946CEA719E1335E9B7CA92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D279F4B744C889FEA76E19B7 /* Pods-ChefioRecipeApp.debug.xcconfig */,
+				2FEA4DBFD4583F964314D7EB /* Pods-ChefioRecipeApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E5E3630628CA0C24CA1B8CCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDB0FCEF4FE67F526D58AC0D /* Pods_ChefioRecipeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 130DF86C25A81F240081386A /* Build configuration list for PBXNativeTarget "ChefioRecipeApp" */;
 			buildPhases = (
+				26CCE519FD08C77A1BBF9675 /* [CP] Check Pods Manifest.lock */,
 				130DF85425A81F1F0081386A /* Sources */,
 				130DF85525A81F1F0081386A /* Frameworks */,
 				130DF85625A81F1F0081386A /* Resources */,
+				220609FCB8B6ADDE685E24BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,12 +249,55 @@
 			files = (
 				1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */,
 				130DF86825A81F240081386A /* LaunchScreen.storyboard in Resources */,
+				135062AF25AAFEC100339668 /* GoogleService-Info.plist in Resources */,
 				130DF87525A823E70081386A /* Inter-Bold.ttf in Resources */,
 				130DF87425A823E70081386A /* Inter-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		220609FCB8B6ADDE685E24BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26CCE519FD08C77A1BBF9675 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChefioRecipeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		130DF85425A81F1F0081386A /* Sources */ = {
@@ -379,6 +451,7 @@
 		};
 		130DF86D25A81F240081386A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D279F4B744C889FEA76E19B7 /* Pods-ChefioRecipeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -398,6 +471,7 @@
 		};
 		130DF86E25A81F240081386A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FEA4DBFD4583F964314D7EB /* Pods-ChefioRecipeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

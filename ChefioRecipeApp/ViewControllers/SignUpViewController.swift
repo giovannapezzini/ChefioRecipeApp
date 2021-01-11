@@ -13,15 +13,11 @@ class SignUpViewController: UIViewController {
     
     var signUpLabel = HeaderLabel(textAlignment: .center, fontSize: 22)
     var signUpDescription = BodyLabel(textAlignment: .center, fontSize: 15)
+    
     var nameTextField = TextField()
     var emailTextField = TextField()
     var passwordTextField = TextField()
-    var passwordRulesLabel = BodyLabel(textAlignment: .left, fontSize: 17)
-    var moreThanSixChar = BodyLabel(textAlignment: .left, fontSize: 15)
-    var containsNumber = BodyLabel(textAlignment: .left, fontSize: 15)
     var signUpButton = PrimaryButton(title: "Sign Up", backgroundColor: Colors.primaryColor)
-    var errorLabel = UILabel()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +28,18 @@ class SignUpViewController: UIViewController {
     }
     
     func validateFields() -> String? {
-        print("validating")
         
         // Check that all fields are filled in
         if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            print("Please fill in all fields.")
+            presentAlertOnMainThread(title: "Error", message: "Please fill in all fields.", buttonTitle: "Ok")
             return "Please fill in all fields."
         }
         
         // Check if the password is secure
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         if isPasswordValid(password) == false {
-            print("Please make sure your password is at least 8 characters, contains a special character and a number.")
+            presentAlertOnMainThread(title: "Error", message: "Please make sure your password is at least 8 characters, contains a special character and a number.", buttonTitle: "Ok")
             return "Please make sure your password is at least 8 characters, contains a special character and a number."
         }
         
@@ -57,14 +52,13 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpButtonTapped() {
-        print("tapped")
         
         // Validate the fields
         let error = validateFields()
         
         if error != nil {
             // There's something wrong with the fields, show error message
-            showError(error!)
+            presentAlertOnMainThread(title: "Error", message: "\(error!)", buttonTitle: "Ok")
         } else {
             // Create cleaned versions of the data
             let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -76,13 +70,13 @@ class SignUpViewController: UIViewController {
                 // Check for errors
                 if error != nil {
                     // There was an error creating the user
-                    self.showError("Error creating the user")
+                    self.presentAlertOnMainThread(title: "Error", message: "Error creating the user.", buttonTitle: "Ok")
                 } else {
                     // User was created successfully, now store the name
                     let db = Firestore.firestore()
                     db.collection("users").addDocument(data: ["name": name, "uid": result!.user.uid]) { (error) in
                         if error != nil {
-                            self.showError("Error saving user data")
+                            self.presentAlertOnMainThread(title: "Error", message: "Error saving user data", buttonTitle: "Ok")
                         }
                     }
                 }
@@ -97,23 +91,14 @@ class SignUpViewController: UIViewController {
         print("Home")
     }
     
-    func showError(_ message: String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
-        
-        let ac = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default)
-        ac.addAction(action)
-        present(ac, animated: true)
-    }
-    
     func layoutUI() {
         view.addSubview(signUpLabel, signUpDescription, nameTextField, emailTextField, passwordTextField, signUpButton)
         signUpLabel.text = "Welcome!"
         signUpDescription.text = "Please enter your account here"
         
         let bold = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
-        nameTextField.leftImage = UIImage(systemName: "person", withConfiguration: bold)
+        let user = UIImage(systemName: "person", withConfiguration: bold)!.withTintColor(Colors.mainTextColor, renderingMode: .alwaysOriginal)
+        nameTextField.leftImage = user
         nameTextField.placeholder = "Your name"
         
         let message = Images.messageImage
@@ -123,6 +108,7 @@ class SignUpViewController: UIViewController {
         let lock = Images.lockImage
         passwordTextField.leftImage = lock
         passwordTextField.placeholder = "Password"
+        passwordTextField.isSecureTextEntry = true
                 
         NSLayoutConstraint.activate([
             signUpLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),

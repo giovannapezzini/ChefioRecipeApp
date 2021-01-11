@@ -7,18 +7,20 @@
 
 import UIKit
 
-class TextField: UITextField {
+class TextField: UITextField, UITextFieldDelegate {
     
     var leftImage: UIImage? = nil
-    var leftPadding: CGFloat = 24
+    var rightImage: UIImage? = nil
+    var sidePadding: CGFloat = 24
     var gapPadding: CGFloat = 10
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        delegate = self
         configure()
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -26,7 +28,15 @@ class TextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
         setup()
-        configure()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        layer.borderColor = Colors.primaryColor.cgColor
+        textColor = Colors.mainTextColor
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        layer.borderColor = Colors.outline.cgColor
     }
     
     private func setup() {
@@ -43,17 +53,32 @@ class TextField: UITextField {
             leftViewMode = UITextField.ViewMode.never
             leftView = nil
         }
+        
+        if let image = rightImage {
+            if rightView != nil { return }
+            
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = image
+            
+            rightViewMode = UITextField.ViewMode.always
+            rightView = imageView
+        } else {
+            rightViewMode = UITextField.ViewMode.never
+            rightView = nil
+        }
     }
+    
+    
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.cornerRadius = 32
+        layer.cornerRadius = 30
         layer.borderWidth = 1
         layer.borderColor = Colors.outline.cgColor
         
         textColor = Colors.secondaryTextColor
-        tintColor = Colors.mainTextColor
         textAlignment = .left
         font = UIFont(name: "Inter-Medium", size: 15)
         adjustsFontSizeToFitWidth = true
@@ -61,12 +86,11 @@ class TextField: UITextField {
         backgroundColor = .clear
         autocorrectionType = .no
         returnKeyType = .go
-        clearButtonMode = .whileEditing
-        leftViewMode = .always
+        clearButtonMode = .never
     }
     
     private var textPadding: UIEdgeInsets {
-        let p: CGFloat = leftPadding + gapPadding + (leftView?.frame.width ?? 0)
+        let p: CGFloat = sidePadding + gapPadding + (leftView?.frame.width ?? 0)
         return UIEdgeInsets(top: 0, left: p, bottom: 0, right: 5)
     }
     
@@ -84,7 +108,13 @@ class TextField: UITextField {
     
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var r = super.leftViewRect(forBounds: bounds)
-        r.origin.x += leftPadding
+        r.origin.x += sidePadding
+        return r
+    }
+    
+    override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+        var r = super.rightViewRect(forBounds: bounds)
+        r.origin.x += -sidePadding
         return r
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -32,12 +33,32 @@ class SignInViewController: UIViewController {
         configureButtonsStackViews()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
     }
     
     @objc func signUpButtonTapped() {
         let signUpVC = SignUpViewController()
         signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true, completion: nil)
+    }
+    
+    @objc func loginTapped() {
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                self.showError(error!.localizedDescription)
+            } else {
+                print("Home")
+            }
+        }
+    }
+    
+    func showError(_ message: String) {
+        let ac = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        ac.addAction(action)
+        present(ac, animated: true)
     }
     
     func configureLogin() {
@@ -48,11 +69,14 @@ class SignInViewController: UIViewController {
         
         let message = Images.messageImage
         emailTextField.leftImage = message
-        emailTextField.placeholder = "Email or phone number"
+        emailTextField.placeholder = "Email address"
         
         let lock = Images.lockImage
         passwordTextField.leftImage = lock
+        let show = Images.showPasswordImage
+        passwordTextField.rightImage = show
         passwordTextField.placeholder = "Password"
+        passwordTextField.isSecureTextEntry = true
         
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordButton.setTitle("Forgot password?", for: .normal)

@@ -61,6 +61,10 @@ class TextField: UITextField, UITextFieldDelegate {
             imageView.contentMode = .scaleAspectFit
             imageView.image = image
             
+            let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.eyeImageTapped))
+            imageView.addGestureRecognizer(tapGR)
+            imageView.isUserInteractionEnabled = true
+            
             rightViewMode = UITextField.ViewMode.always
             rightView = imageView
         } else {
@@ -69,7 +73,9 @@ class TextField: UITextField, UITextFieldDelegate {
         }
     }
     
-    
+    @objc func eyeImageTapped() {
+        isSecureTextEntry.toggle()
+    }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false

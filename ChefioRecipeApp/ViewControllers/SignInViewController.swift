@@ -14,7 +14,6 @@ class SignInViewController: UIViewController {
     var signInDescription = BodyLabel()
     var emailTextField = TextField()
     var passwordTextField = TextField()
-    var forgotPasswordButton = UIButton()
     
     var stackView = UIStackView()
     var stackView2 = UIStackView()
@@ -29,7 +28,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        configureLogin()
+        configureLoginFields()
         configureButtonsStackViews()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
@@ -47,22 +46,15 @@ class SignInViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
-                self.showError(error!.localizedDescription)
+                self.presentAlertOnMainThread(title: "Oops", message: error!.localizedDescription, buttonTitle: "Ok")
             } else {
                 print("Home")
             }
         }
     }
     
-    func showError(_ message: String) {
-        let ac = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default)
-        ac.addAction(action)
-        present(ac, animated: true)
-    }
-    
-    func configureLogin() {
-        view.addSubview(signInLabel, signInDescription, emailTextField, passwordTextField, forgotPasswordButton)
+    func configureLoginFields() {
+        view.addSubview(signInLabel, signInDescription, emailTextField, passwordTextField)
         
         signInLabel.text = "Welcome Back!"
         signInDescription.text = "Please enter your account here"
@@ -77,11 +69,6 @@ class SignInViewController: UIViewController {
         passwordTextField.rightImage = show
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
-        
-        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
-        forgotPasswordButton.setTitle("Forgot password?", for: .normal)
-        forgotPasswordButton.setTitleColor(Colors.mainTextColor, for: .normal)
-        forgotPasswordButton.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
         
         NSLayoutConstraint.activate([
             signInLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 86),
@@ -98,11 +85,7 @@ class SignInViewController: UIViewController {
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
             passwordTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             passwordTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 56),
-            
-            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 24),
-            forgotPasswordButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
-            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 24),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
     

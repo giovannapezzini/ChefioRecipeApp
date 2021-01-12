@@ -21,7 +21,7 @@ class SignInViewController: UIViewController {
     
     var loginButton = PrimaryButton(title: "Login", backgroundColor: Colors.primaryColor)
     var textLabel = BodyLabel()
-    var googleButton = PrimaryButton(title: "Google", backgroundColor: Colors.secondaryColor)
+    var googleButton = PrimaryButton(title: "Google", backgroundColor: Colors.form)
     var anyAccountLabel = BodyLabel(textAlignment: .center, fontSize: 15)
     var signUpButton = UIButton()
     
@@ -108,6 +108,7 @@ class SignInViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.addArrangedSubview(loginButton, textLabel, googleButton, stackView2)
+        googleButton.setTitleColor(Colors.secondaryTextColor, for: .normal)
         
         stackView2.axis = .vertical
         stackView2.distribution = .fillEqually

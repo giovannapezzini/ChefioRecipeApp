@@ -107,6 +107,8 @@ class SignUpViewController: UIViewController {
         
         let lock = Images.lockImage
         passwordTextField.leftImage = lock
+        let show = Images.showPasswordImage
+        passwordTextField.rightImage = show
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
                 

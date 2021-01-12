@@ -87,17 +87,22 @@ class TextField: UITextField, UITextFieldDelegate {
         textColor = Colors.secondaryTextColor
         textAlignment = .left
         font = UIFont(name: "Inter-Medium", size: 15)
-        adjustsFontSizeToFitWidth = true
+        adjustsFontSizeToFitWidth = false
         minimumFontSize = 12
         backgroundColor = .clear
         autocorrectionType = .no
         returnKeyType = .go
-        clearButtonMode = .never
+        clearButtonMode = .whileEditing
     }
+    
+    override func clearButtonRect(forBounds bounds: CGRect) -> CGRect{
+            let rect = super.clearButtonRect(forBounds: bounds)
+            return rect.offsetBy(dx: -20, dy: 0)
+        }
     
     private var textPadding: UIEdgeInsets {
         let p: CGFloat = sidePadding + gapPadding + (leftView?.frame.width ?? 0)
-        return UIEdgeInsets(top: 0, left: p, bottom: 0, right: 5)
+        return UIEdgeInsets(top: 0, left: p, bottom: 0, right: p)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {

@@ -19,12 +19,15 @@
 		130DF89025A82D250081386A /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF88F25A82D250081386A /* BodyLabel.swift */; };
 		130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF89225A82DFA0081386A /* SignInViewController.swift */; };
 		130DF8A425A837140081386A /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF8A325A837140081386A /* TextField.swift */; };
+		1314E7A925AD938700780B37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1314E7A825AD938700780B37 /* GoogleService-Info.plist */; };
 		131BE42325AC611D000974FC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BE42225AC611D000974FC /* UIViewController+Ext.swift */; };
 		1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
 		1335EA5625A8586100024059 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5525A8586100024059 /* UIView+Ext.swift */; };
 		1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5825A8589E00024059 /* UIStackView+Ext.swift */; };
+		1347096825AD24FC002C4078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1347096725AD24FC002C4078 /* README.md */; };
+		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
-		135062AF25AAFEC100339668 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 135062AE25AAFEC100339668 /* GoogleService-Info.plist */; };
+		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
 		C01FA016FED36A50A99CE8E3 /* Pods_ChefioRecipeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB0FCEF4FE67F526D58AC0D /* Pods_ChefioRecipeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,12 +45,15 @@
 		130DF88F25A82D250081386A /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
 		130DF89225A82DFA0081386A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		130DF8A325A837140081386A /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1314E7A825AD938700780B37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		131BE42225AC611D000974FC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1335EA5525A8586100024059 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1335EA5825A8589E00024059 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		1347096725AD24FC002C4078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		135062AE25AAFEC100339668 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		13EB6F5225A83C3000ACE243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FEA4DBFD4583F964314D7EB /* Pods-ChefioRecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefioRecipeApp.release.xcconfig"; path = "Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp.release.xcconfig"; sourceTree = "<group>"; };
 		D279F4B744C889FEA76E19B7 /* Pods-ChefioRecipeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefioRecipeApp.debug.xcconfig"; path = "Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +75,8 @@
 		130DF84F25A81F1F0081386A = {
 			isa = PBXGroup;
 			children = (
+				1347096625AD24E3002C4078 /* Documentation */,
+				1347096725AD24FC002C4078 /* README.md */,
 				130DF85A25A81F1F0081386A /* ChefioRecipeApp */,
 				130DF85925A81F1F0081386A /* Products */,
 				94946CEA719E1335E9B7CA92 /* Pods */,
@@ -96,7 +104,7 @@
 				130DF87125A822E50081386A /* Fonts */,
 				130DF89525A82E150081386A /* Support */,
 				13268B1225A841FC00E49EDF /* Info.plist */,
-				135062AE25AAFEC100339668 /* GoogleService-Info.plist */,
+				1314E7A825AD938700780B37 /* GoogleService-Info.plist */,
 			);
 			path = ChefioRecipeApp;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				130DF87F25A8279C0081386A /* Constants.swift */,
+				13E0AA8825AFC171002EEEA3 /* Firebase.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -172,6 +181,14 @@
 				131BE42225AC611D000974FC /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1347096625AD24E3002C4078 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				1347096C25AD25F0002C4078 /* AppBanner.png */,
+			);
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 		94946CEA719E1335E9B7CA92 /* Pods */ = {
@@ -250,11 +267,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1347096825AD24FC002C4078 /* README.md in Resources */,
 				1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */,
 				130DF86825A81F240081386A /* LaunchScreen.storyboard in Resources */,
-				135062AF25AAFEC100339668 /* GoogleService-Info.plist in Resources */,
+				1347096D25AD25F0002C4078 /* AppBanner.png in Resources */,
 				130DF87525A823E70081386A /* Inter-Bold.ttf in Resources */,
 				130DF87425A823E70081386A /* Inter-Medium.ttf in Resources */,
+				1314E7A925AD938700780B37 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */,
 				130DF88025A8279C0081386A /* Constants.swift in Sources */,
 				131BE42325AC611D000974FC /* UIViewController+Ext.swift in Sources */,
 				130DF89025A82D250081386A /* BodyLabel.swift in Sources */,

@@ -6,9 +6,10 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class SignInViewController: UIViewController {
+    
+    var firebase = Firebase()
     
     var signInLabel = HeaderLabel()
     var signInDescription = BodyLabel()
@@ -29,28 +30,25 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureLoginFields()
+        configureButtons()
         configureButtonsStackViews()
-        
+    }
+    
+    func configureButtons() {
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+    }
+    
+    @objc func loginTapped() {
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        
+        firebase.authenticate(vc: self, email: email, password: password)
     }
     
     @objc func signUpButtonTapped() {
         let signUpVC = SignUpViewController()
         signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true, completion: nil)
-    }
-    
-    @objc func loginTapped() {
-        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if error != nil {
-                self.presentAlertOnMainThread(title: "Oops", message: error!.localizedDescription, buttonTitle: "Ok")
-            } else {
-                print("Home")
-            }
-        }
     }
     
     func configureLoginFields() {

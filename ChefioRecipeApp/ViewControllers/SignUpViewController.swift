@@ -45,19 +45,19 @@ class SignUpViewController: UIViewController {
         
         if !isValidName {
             nameTextField.layer.borderColor = Colors.secondaryColor.cgColor
-            presentAlertOnMainThread(title: "Error", message: "Please make sure your name length has 3 characters minimum and 18 characters maximum", buttonTitle: "Ok")
+            showAlert(message: ErrorMessages.invalidName.rawValue)
             return false
         } else { nameTextField.layer.borderColor = Colors.primaryColor.cgColor }
         
         if !isValidEmail {
             emailTextField.layer.borderColor = Colors.secondaryColor.cgColor
-            presentAlertOnMainThread(title: "Error", message: "Please make sure your email is correct.", buttonTitle: "Ok")
+            showAlert(message: ErrorMessages.invalidEmail.rawValue)
             return false
         } else { emailTextField.layer.borderColor = Colors.primaryColor.cgColor }
         
         if !isValidPassword {
             passwordTextField.layer.borderColor = Colors.secondaryColor.cgColor
-            presentAlertOnMainThread(title: "Error", message: "Please make sure your password is at least 8 characters, contains a special character and a number.", buttonTitle: "Ok")
+            showAlert(message: ErrorMessages.invalidPassword.rawValue)
             return false
         } else { passwordTextField.layer.borderColor = Colors.primaryColor.cgColor }
         
@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController {
             // Transition to the home screen
             transitionToHome()
         } else {
-            presentAlertOnMainThread(title: "Error", message: "There's something wrong with the fields", buttonTitle: "Ok")
+            showAlert(message: ErrorMessages.textFieldsError.rawValue)
         }
     }
     

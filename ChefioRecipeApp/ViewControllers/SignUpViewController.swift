@@ -11,6 +11,9 @@ import Firebase
 
 class SignUpViewController: UIViewController {
     
+    var firebase = Firebase()
+    var validation = Validation()
+    
     var signUpLabel = HeaderLabel(textAlignment: .center, fontSize: 22)
     var signUpDescription = BodyLabel(textAlignment: .center, fontSize: 15)
     
@@ -27,63 +30,48 @@ class SignUpViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
     
-    func validateFields() -> String? {
+    func validateFields() -> Bool {
+        guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return false }
+                
+        let isValidName = validation.validateName(name: name)
+        let isValidEmail = validation.validateEmail(email: email)
+        let isValidPassword = validation.validatePassword(password: password)
         
-        // Check that all fields are filled in
-        if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            presentAlertOnMainThread(title: "Error", message: "Please fill in all fields.", buttonTitle: "Ok")
-            return "Please fill in all fields."
+        if !isValidName {
+            presentAlertOnMainThread(title: "Error", message: "Please make sure your name length has 3 characters minimum and 18 characters maximum", buttonTitle: "Ok")
+            return false
         }
         
-        // Check if the password is secure
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if isPasswordValid(password) == false {
+        if !isValidEmail {
+            presentAlertOnMainThread(title: "Error", message: "Please make sure your email is correct.", buttonTitle: "Ok")
+            return false
+        }
+        
+        if !isValidPassword {
             presentAlertOnMainThread(title: "Error", message: "Please make sure your password is at least 8 characters, contains a special character and a number.", buttonTitle: "Ok")
-            return "Please make sure your password is at least 8 characters, contains a special character and a number."
+            return false
         }
         
-        return nil
-    }
-    
-    func isPasswordValid(_ password : String) -> Bool{
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        return passwordTest.evaluate(with: password)
+        if isValidName, isValidEmail, isValidPassword {
+            return true
+        }
+        
+        return false
     }
     
     @objc func signUpButtonTapped() {
-        
-        // Validate the fields
-        let error = validateFields()
-        
-        if error != nil {
-            // There's something wrong with the fields, show error message
-            presentAlertOnMainThread(title: "Error", message: "\(error!)", buttonTitle: "Ok")
-        } else {
-            // Create cleaned versions of the data
-            let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+        if validateFields() {
+            let name = nameTextField.text!
+            let email = emailTextField.text!
+            let password = passwordTextField.text!
+
             // Create the user
-            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-                // Check for errors
-                if error != nil {
-                    // There was an error creating the user
-                    self.presentAlertOnMainThread(title: "Error", message: "Error creating the user.", buttonTitle: "Ok")
-                } else {
-                    // User was created successfully, now store the name
-                    let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["name": name, "uid": result!.user.uid]) { (error) in
-                        if error != nil {
-                            self.presentAlertOnMainThread(title: "Error", message: "Error saving user data", buttonTitle: "Ok")
-                        }
-                    }
-                }
-            }
-            
+            firebase.createUser(vc: self, name: name, email: email, password: password)
+
             // Transition to the home screen
             transitionToHome()
+        } else {
+            presentAlertOnMainThread(title: "Error", message: "There's something wrong with the fields", buttonTitle: "Ok")
         }
     }
     

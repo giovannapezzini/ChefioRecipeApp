@@ -16,7 +16,9 @@ class Firebase: NSObject {
             if error != nil {
                 vc.showAlert(message: error!.localizedDescription)
             } else {
-                print("Home")
+                let homeVC = HomeViewController()
+                homeVC.modalPresentationStyle = .fullScreen
+                vc.present(homeVC, animated: true)
             }
         }
     }

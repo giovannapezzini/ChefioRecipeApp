@@ -74,14 +74,12 @@ class SignUpViewController: UIViewController {
             firebase.createUser(vc: self, name: name, email: email, password: password)
 
             // Transition to the home screen
-            transitionToHome()
+            let homeVC = HomeViewController()
+            homeVC.modalPresentationStyle = .fullScreen
+            present(homeVC, animated: true)
         } else {
             showAlert(message: ErrorMessages.textFieldsError.rawValue)
         }
-    }
-    
-    func transitionToHome() {
-        print("Home")
     }
     
     func layoutUI() {

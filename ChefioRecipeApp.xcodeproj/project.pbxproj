@@ -30,6 +30,7 @@
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
 		13E0AAA225AFCA23002EEEA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA125AFCA23002EEEA3 /* Validation.swift */; };
 		13E0AAA525B0061C002EEEA3 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA425B0061C002EEEA3 /* ErrorMessages.swift */; };
+		13E0AAA825B016A6002EEEA3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA725B016A6002EEEA3 /* HomeViewController.swift */; };
 		C01FA016FED36A50A99CE8E3 /* Pods_ChefioRecipeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB0FCEF4FE67F526D58AC0D /* Pods_ChefioRecipeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		13E0AAA125AFCA23002EEEA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		13E0AAA425B0061C002EEEA3 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		13E0AAA725B016A6002EEEA3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		13EB6F5225A83C3000ACE243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FEA4DBFD4583F964314D7EB /* Pods-ChefioRecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefioRecipeApp.release.xcconfig"; path = "Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp.release.xcconfig"; sourceTree = "<group>"; };
 		D279F4B744C889FEA76E19B7 /* Pods-ChefioRecipeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefioRecipeApp.debug.xcconfig"; path = "Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				130DF85F25A81F1F0081386A /* OnboardingViewController.swift */,
 				130DF89225A82DFA0081386A /* SignInViewController.swift */,
 				135062A825AAF16300339668 /* SignUpViewController.swift */,
+				13E0AAA725B016A6002EEEA3 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				13E0AAA525B0061C002EEEA3 /* ErrorMessages.swift in Sources */,
 				13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */,
 				130DF88025A8279C0081386A /* Constants.swift in Sources */,
+				13E0AAA825B016A6002EEEA3 /* HomeViewController.swift in Sources */,
 				131BE42325AC611D000974FC /* UIViewController+Ext.swift in Sources */,
 				130DF89025A82D250081386A /* BodyLabel.swift in Sources */,
 				1335EA5625A8586100024059 /* UIView+Ext.swift in Sources */,

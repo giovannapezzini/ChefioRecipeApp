@@ -31,12 +31,7 @@ class TextField: UITextField, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        layer.borderColor = Colors.primaryColor.cgColor
         textColor = Colors.mainTextColor
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        layer.borderColor = Colors.outline.cgColor
     }
     
     private func setup() {

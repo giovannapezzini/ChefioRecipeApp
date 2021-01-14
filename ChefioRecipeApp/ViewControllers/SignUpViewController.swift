@@ -37,24 +37,29 @@ class SignUpViewController: UIViewController {
         let isValidEmail = validation.validateEmail(email: email)
         let isValidPassword = validation.validatePassword(password: password)
         
+        if isValidName, isValidEmail, isValidPassword { return true } else {
+            nameTextField.layer.borderColor = Colors.secondaryColor.cgColor
+            emailTextField.layer.borderColor = Colors.secondaryColor.cgColor
+            passwordTextField.layer.borderColor = Colors.secondaryColor.cgColor
+        }
+        
         if !isValidName {
+            nameTextField.layer.borderColor = Colors.secondaryColor.cgColor
             presentAlertOnMainThread(title: "Error", message: "Please make sure your name length has 3 characters minimum and 18 characters maximum", buttonTitle: "Ok")
             return false
-        }
+        } else { nameTextField.layer.borderColor = Colors.primaryColor.cgColor }
         
         if !isValidEmail {
+            emailTextField.layer.borderColor = Colors.secondaryColor.cgColor
             presentAlertOnMainThread(title: "Error", message: "Please make sure your email is correct.", buttonTitle: "Ok")
             return false
-        }
+        } else { emailTextField.layer.borderColor = Colors.primaryColor.cgColor }
         
         if !isValidPassword {
+            passwordTextField.layer.borderColor = Colors.secondaryColor.cgColor
             presentAlertOnMainThread(title: "Error", message: "Please make sure your password is at least 8 characters, contains a special character and a number.", buttonTitle: "Ok")
             return false
-        }
-        
-        if isValidName, isValidEmail, isValidPassword {
-            return true
-        }
+        } else { passwordTextField.layer.borderColor = Colors.primaryColor.cgColor }
         
         return false
     }

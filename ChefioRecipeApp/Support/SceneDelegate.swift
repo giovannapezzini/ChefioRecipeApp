@@ -18,21 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let user = FirebaseAuth.Auth.auth().currentUser
+        let mainView = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: mainView)
 
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
-        // Check if user is logged in
-        if (user != nil) {
-            let homeVC = HomeViewController()
-            self.window?.rootViewController = homeVC
-        } else {
-            let onboardVC = OnboardingViewController()
-            self.window?.rootViewController = onboardVC
-        }
-        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        configureNavigationBar()
+    }
+    
+    func configureNavigationBar() {
+        UINavigationBar.appearance().tintColor = Colors.primaryColor
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -24,9 +24,12 @@
 		1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
 		1335EA5625A8586100024059 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5525A8586100024059 /* UIView+Ext.swift */; };
 		1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1335EA5825A8589E00024059 /* UIStackView+Ext.swift */; };
+		134198AA25B1270D000D98F7 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134198A925B1270D000D98F7 /* Recipe.swift */; };
+		134198B025B12A21000D98F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134198AF25B12A21000D98F7 /* NetworkManager.swift */; };
 		1347096825AD24FC002C4078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1347096725AD24FC002C4078 /* README.md */; };
 		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
+		13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F23125CCD17100567D2A /* RecipeCell.swift */; };
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
 		13E0AAA225AFCA23002EEEA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA125AFCA23002EEEA3 /* Validation.swift */; };
 		13E0AAA525B0061C002EEEA3 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA425B0061C002EEEA3 /* ErrorMessages.swift */; };
@@ -53,9 +56,12 @@
 		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1335EA5525A8586100024059 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1335EA5825A8589E00024059 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		134198A925B1270D000D98F7 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		134198AF25B12A21000D98F7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1347096725AD24FC002C4078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		13C5F23125CCD17100567D2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		13E0AAA125AFCA23002EEEA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		13E0AAA425B0061C002EEEA3 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
@@ -101,11 +107,14 @@
 		130DF85A25A81F1F0081386A /* ChefioRecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				134198AE25B12A0A000D98F7 /* Managers */,
+				134198A825B12701000D98F7 /* Model */,
 				130DF88D25A82CE60081386A /* Utilities */,
 				1335EA4F25A8582500024059 /* Extensions */,
 				130DF8A225A836F10081386A /* Text Fields */,
 				130DF89725A82E530081386A /* ViewControllers */,
 				130DF88B25A82CCB0081386A /* Buttons */,
+				13C5F21525CCACAB00567D2A /* Cell */,
 				130DF88925A82CC20081386A /* Labels */,
 				130DF87125A822E50081386A /* Fonts */,
 				130DF89525A82E150081386A /* Support */,
@@ -192,12 +201,36 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		134198A825B12701000D98F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				134198A925B1270D000D98F7 /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		134198AE25B12A0A000D98F7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				134198AF25B12A21000D98F7 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		1347096625AD24E3002C4078 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
 				1347096C25AD25F0002C4078 /* AppBanner.png */,
 			);
 			path = Documentation;
+			sourceTree = "<group>";
+		};
+		13C5F21525CCACAB00567D2A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				13C5F23125CCD17100567D2A /* RecipeCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		94946CEA719E1335E9B7CA92 /* Pods */ = {
@@ -335,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134198B025B12A21000D98F7 /* NetworkManager.swift in Sources */,
 				13E0AAA525B0061C002EEEA3 /* ErrorMessages.swift in Sources */,
 				13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */,
 				130DF88025A8279C0081386A /* Constants.swift in Sources */,
@@ -349,7 +383,9 @@
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,
+				13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */,
 				130DF87C25A8274C0081386A /* PrimaryButton.swift in Sources */,
+				134198AA25B1270D000D98F7 /* Recipe.swift in Sources */,
 				13E0AAA225AFCA23002EEEA3 /* Validation.swift in Sources */,
 				130DF85E25A81F1F0081386A /* SceneDelegate.swift in Sources */,
 			);

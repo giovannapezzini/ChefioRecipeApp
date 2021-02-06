@@ -25,7 +25,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        layout.minimumInteritemSpacing = 4
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(RecipeCell.self, forCellWithReuseIdentifier: "RecipeCell")
@@ -34,6 +35,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         
         view.addSubview(collectionView)
+        
+        layout.itemSize = CGSize(width:(self.collectionView.frame.size.width - 60) / 2, height: (self.collectionView.frame.size.width) / 2)
     }
     
     // MARK: - DataSource methods
@@ -51,12 +54,5 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.backgroundColor = .red
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
-        let space: CGFloat = (flowLayout?.minimumInteritemSpacing ?? 0.0) + (flowLayout?.sectionInset.left ?? 0.0) + (flowLayout?.sectionInset.right ?? 0.0)
-        let size: CGFloat = (collectionView.frame.size.width - space) / 2.0
-        return CGSize(width: size, height: size)
     }
 }

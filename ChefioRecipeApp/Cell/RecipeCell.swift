@@ -40,18 +40,19 @@ class RecipeCell: UICollectionViewCell {
     }
     
     func setupView() {
-        addSubview(recipeLabel, timeLabel)
+        addSubview(recipeImageView, recipeLabel, timeLabel)
         
         NSLayoutConstraint.activate([
-//            recipeImageView.topAnchor.constraint(equalTo: self.topAnchor),
-//            recipeImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            recipeImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            recipeImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            recipeImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            recipeImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            recipeImageView.heightAnchor.constraint(equalToConstant: 120),
             
-            recipeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            recipeLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 10),
             recipeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            timeLabel.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 10),
+            timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
             timeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])

@@ -12,6 +12,8 @@ class RecipeCell: UICollectionViewCell {
     let recipeLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = Colors.mainTextColor
         label.numberOfLines = 0
         return label
     }()
@@ -19,6 +21,8 @@ class RecipeCell: UICollectionViewCell {
     let timeLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.textColor = Colors.secondaryTextColor
         label.numberOfLines = 0
         return label
     }()
@@ -26,7 +30,9 @@ class RecipeCell: UICollectionViewCell {
     let recipeImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 18
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -46,13 +52,14 @@ class RecipeCell: UICollectionViewCell {
             recipeImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             recipeImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipeImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            recipeImageView.heightAnchor.constraint(equalToConstant: 120),
+            recipeImageView.widthAnchor.constraint(equalToConstant: self.frame.width),
+            recipeImageView.heightAnchor.constraint(equalToConstant: self.frame.width),
             
-            recipeLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 10),
+            recipeLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -8),
             recipeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             timeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])

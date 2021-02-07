@@ -24,21 +24,24 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func configureCollectionView() {
+        // FlowLayout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.minimumInteritemSpacing = 4
         
+        // CollectionView
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(RecipeCell.self, forCellWithReuseIdentifier: "RecipeCell")
         collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        view.addSubview(collectionView)
-        
+        // Cell size
+        let width = (self.collectionView.frame.size.width - 60) / 2
         let height = collectionView.frame.size.width - 150
-        layout.itemSize = CGSize(width:(self.collectionView.frame.size.width - 60) / 2, height: height)
-        print(height)
+        layout.itemSize = CGSize(width: width, height: height)
+        
+        view.addSubview(collectionView)
     }
     
     // MARK: - DataSource methods

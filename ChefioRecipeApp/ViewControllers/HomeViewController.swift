@@ -30,19 +30,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(RecipeCell.self, forCellWithReuseIdentifier: "RecipeCell")
-        collectionView?.backgroundColor = .systemGray5
+        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         
         view.addSubview(collectionView)
         
-        layout.itemSize = CGSize(width:(self.collectionView.frame.size.width - 60) / 2, height: (self.collectionView.frame.size.width) / 2)
+        let height = collectionView.frame.size.width - 150
+        layout.itemSize = CGSize(width:(self.collectionView.frame.size.width - 60) / 2, height: height)
+        print(height)
     }
     
     // MARK: - DataSource methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,7 +53,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.recipeImageView.image = UIImage(named: "image-placeholder")
         cell.recipeLabel.text = "Recipe"
         cell.timeLabel.text = "60 minutes"
-        cell.backgroundColor = .red
         
         return cell
     }

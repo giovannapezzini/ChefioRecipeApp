@@ -11,11 +11,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var recipe = [Recipe]()
     var collectionView: UICollectionView!
+    var shared = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         configureCollectionView()
+        fetchData()
     }
     
     func setupView() {
@@ -23,6 +25,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         view.backgroundColor = .white
     }
     
+    func fetchData() {
+        shared.getRandomRecipe { (result) in
+            switch result {
+            case .success(let recipe):
+                self.recipe.append(contentsOf: recipe)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     func configureCollectionView() {
         // FlowLayout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -56,6 +68,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.recipeImageView.image = UIImage(named: "image-placeholder")
         cell.recipeLabel.text = "Recipe"
         cell.timeLabel.text = "60 minutes"
+        
+        if !recipe.isEmpty {
+            for item in recipe {
+                cell.set(recipe: item)
+            }
+        }
         
         return cell
     }

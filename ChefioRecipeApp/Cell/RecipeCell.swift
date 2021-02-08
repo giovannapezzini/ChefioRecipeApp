@@ -41,6 +41,10 @@ class RecipeCell: UICollectionViewCell {
         setupView()
     }
     
+    func set(recipe: Recipe) {
+        recipeLabel.text = recipe.title
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

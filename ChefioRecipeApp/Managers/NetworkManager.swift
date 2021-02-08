@@ -44,4 +44,21 @@ class NetworkManager {
         
         task.resume()
     }
+    
+    func downloadRecipeImage(imageURL: String, completion: @escaping (UIImage?, Bool) -> Void) {
+        if let url = URL(string: imageURL) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data else {
+                        completion(nil, false)
+                        return
+                    }
+                    DispatchQueue.main.async{
+                        completion(UIImage(data: data), true)
+                    }
+                }
+                task.resume()
+            }
+        }
+    }
 }

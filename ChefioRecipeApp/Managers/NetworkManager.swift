@@ -34,14 +34,10 @@ class NetworkManager {
                 return
             }
             
-            do {
-                // let recipes = try! JSONDecoder().decode([Recipe].self, from: data)
-                let decoder = JSONDecoder()
-                let recipe = try decoder.decode([Recipe].self, from: data)
-                completion(.success(recipe))
-//                print(recipes.count)
-//                print(recipes)
-            } catch {
+            let recipesDictionary = try! JSONDecoder().decode([String: [Recipe]].self, from: data)
+            if let recipes = recipesDictionary["recipes"] {
+                completion(.success(recipes))
+            } else {
                 completion(.failure(.invalidData))
             }
         }

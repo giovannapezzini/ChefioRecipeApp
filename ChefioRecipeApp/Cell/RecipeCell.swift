@@ -8,6 +8,7 @@
 import UIKit
 
 class RecipeCell: UICollectionViewCell {
+    let shared = NetworkManager()
     
     let recipeLabel: UILabel = {
         var label = UILabel()
@@ -43,6 +44,12 @@ class RecipeCell: UICollectionViewCell {
     
     func set(recipe: Recipe) {
         recipeLabel.text = recipe.title
+        
+        if let imageURL = recipe.image {
+            shared.downloadRecipeImage(imageURL: imageURL) { (image, success) in
+                self.recipeImageView.image = image
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -59,11 +66,11 @@ class RecipeCell: UICollectionViewCell {
             recipeImageView.widthAnchor.constraint(equalToConstant: self.frame.width),
             recipeImageView.heightAnchor.constraint(equalToConstant: self.frame.width),
             
-            recipeLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -8),
+            recipeLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 10),
             recipeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            timeLabel.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 8),
             timeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])

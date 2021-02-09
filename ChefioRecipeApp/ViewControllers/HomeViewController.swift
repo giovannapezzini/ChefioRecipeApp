@@ -43,6 +43,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.3
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4.0)
         self.navigationController?.navigationBar.layer.shadowRadius = 6
+        
+        let searchButton = UIBarButtonItem(image: UIImage(named: "Search"), style: .plain, target: self, action: #selector(searchButtonTapped))
+        searchButton.tintColor = Colors.mainTextColor
+        self.navigationItem.rightBarButtonItem  = searchButton
+    }
+    
+    @objc func searchButtonTapped() {
+        print("tapped")
     }
     
     func configureCollectionView() {

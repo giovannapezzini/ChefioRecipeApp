@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        configureNavBar()
         configureCollectionView()
         fetchData()
     }
@@ -35,6 +36,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
     }
+    
+    func configureNavBar() {
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.3
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 6
+    }
+    
     func configureCollectionView() {
         // FlowLayout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()

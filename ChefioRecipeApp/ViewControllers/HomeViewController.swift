@@ -37,6 +37,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    // MARK: - NavigationController
+    
     func configureNavBar() {
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
@@ -52,6 +54,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @objc func searchButtonTapped() {
         print("tapped")
     }
+    
+    // MARK: - CollectionView
     
     func configureCollectionView() {
         // FlowLayout

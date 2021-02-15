@@ -11,7 +11,7 @@ class NetworkManager {
     static let apiKey = "80f29c792ec145709e2f163f236bbe2d"
     private let requestURL = "https://api.spoonacular.com/"
     
-    func getRandomRecipe(completion: @escaping (Result<[Recipe], ErrorMessages>) -> Void) {
+    func getRandomRecipe(completion: @escaping (Result<RecipeData, ErrorMessages>) -> Void) {
         let endpoint = requestURL + "recipes/random/?apiKey=\(NetworkManager.apiKey)"
         
         guard let url = URL(string: endpoint) else {
@@ -34,10 +34,17 @@ class NetworkManager {
                 return
             }
             
-            let recipesDictionary = try! JSONDecoder().decode([String: [Recipe]].self, from: data)
-            if let recipes = recipesDictionary["recipes"] {
-                completion(.success(recipes))
-            } else {
+            do {
+                // Parse the data
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(RecipeData.self, from: data)
+                
+                // Back to the main thread
+                DispatchQueue.main.async {
+                    completion(.success(jsonData))
+                    print(jsonData)
+                }
+            } catch {
                 completion(.failure(.invalidData))
             }
         }

@@ -20,6 +20,15 @@ class RecipeCell: UICollectionViewCell {
         return label
     }()
     
+    let timeIcon: UIImageView = {
+        var imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let smallConfig = UIImage.SymbolConfiguration(scale: .small)
+        imageView.image = UIImage(systemName: "heart.fill", withConfiguration: smallConfig)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     let timeLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +67,7 @@ class RecipeCell: UICollectionViewCell {
     }
     
     func setupView() {
-        addSubview(recipeImageView, recipeLabel, timeLabel)
+        addSubview(recipeImageView, recipeLabel, timeIcon, timeLabel)
         
         NSLayoutConstraint.activate([
             recipeImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
@@ -71,8 +80,13 @@ class RecipeCell: UICollectionViewCell {
             recipeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
+            timeIcon.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 8),
+            timeIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            timeIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            timeIcon.heightAnchor.constraint(equalToConstant: 12),
+            
             timeLabel.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 8),
-            timeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            timeLabel.leadingAnchor.constraint(equalTo: timeIcon.trailingAnchor, constant: 4),
             timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }

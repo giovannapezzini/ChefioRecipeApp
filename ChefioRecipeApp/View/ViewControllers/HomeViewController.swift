@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // Cell size
         let width = (self.collectionView.frame.size.width - 60) / 2
-        let height = collectionView.frame.size.width - 110
+        let height = collectionView.frame.size.width - 120
         layout.itemSize = CGSize(width: width, height: height)
         
         view.addSubview(collectionView)

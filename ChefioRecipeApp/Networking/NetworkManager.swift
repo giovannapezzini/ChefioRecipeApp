@@ -12,7 +12,7 @@ class NetworkManager {
     private let requestURL = "https://api.spoonacular.com/"
     
     func getRandomRecipe(completion: @escaping (Result<RecipeData, ErrorMessages>) -> Void) {
-        let endpoint = requestURL + "recipes/random/?apiKey=\(NetworkManager.apiKey)"
+        let endpoint = requestURL + "recipes/random/?apiKey=\(NetworkManager.apiKey)&number=6"
         
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidURL))

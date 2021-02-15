@@ -22,10 +22,10 @@ class RecipeCell: UICollectionViewCell {
     
     let timeIcon: UIImageView = {
         var imageView = UIImageView()
+        var timeIcon = UIImage(systemName: "deskclock.fill")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        let smallConfig = UIImage.SymbolConfiguration(scale: .small)
-        imageView.image = UIImage(systemName: "heart.fill", withConfiguration: smallConfig)
-        imageView.contentMode = .scaleAspectFill
+        imageView.tintColor = Colors.secondaryTextColor
+        imageView.image = timeIcon
         return imageView
     }()
     
@@ -80,13 +80,13 @@ class RecipeCell: UICollectionViewCell {
             recipeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             recipeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            timeIcon.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 8),
+            timeIcon.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor),
             timeIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            timeIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            timeIcon.heightAnchor.constraint(equalToConstant: 12),
+            timeIcon.heightAnchor.constraint(equalToConstant: 16),
+            timeIcon.widthAnchor.constraint(equalToConstant: 16),
             
             timeLabel.topAnchor.constraint(equalTo: recipeLabel.bottomAnchor, constant: 8),
-            timeLabel.leadingAnchor.constraint(equalTo: timeIcon.trailingAnchor, constant: 4),
+            timeLabel.leadingAnchor.constraint(equalTo: timeIcon.trailingAnchor, constant: 8),
             timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }

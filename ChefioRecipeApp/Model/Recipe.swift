@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct RecipeData: Decodable {
+    let recipes: [Recipe]
+    
+    private enum CodingKeys: String, CodingKey {
+        case recipes = "recipes"
+    }
+}
+
 struct Recipe: Codable, Hashable {
     var title : String?
     var image : String?

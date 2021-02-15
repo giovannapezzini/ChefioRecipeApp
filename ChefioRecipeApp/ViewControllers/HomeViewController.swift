@@ -11,30 +11,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var recipe = [Recipe]()
     var collectionView: UICollectionView!
-    var shared = NetworkManager()
+    var viewModel = RecipeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         configureNavBar()
         configureCollectionView()
-        fetchData()
+        
+        loadRandomRecipes()
+    }
+    
+    private func loadRandomRecipes() {
+        viewModel.fetchRandomRecipesData {
+            self.collectionView.dataSource = self
+            self.collectionView.reloadData()
+        }
     }
     
     func setupView() {
         title = "Home"
         view.backgroundColor = .white
-    }
-    
-    func fetchData() {
-        shared.getRandomRecipe { (result) in
-            switch result {
-            case .success(let recipe):
-                self.recipe.append(contentsOf: recipe)
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     // MARK: - NavigationController
@@ -68,7 +65,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView?.register(RecipeCell.self, forCellWithReuseIdentifier: "RecipeCell")
         collectionView.backgroundColor = .white
         collectionView.delegate = self
-        collectionView.dataSource = self
         
         // Cell size
         let width = (self.collectionView.frame.size.width - 60) / 2
@@ -81,7 +77,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - DataSource methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return viewModel.numberOfRowsInSection(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,12 +87,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.recipeLabel.text = "Recipe"
         cell.timeLabel.text = "60 minutes"
         
-        if !recipe.isEmpty {
-            for item in recipe {
-                cell.set(recipe: item)
-            }
-        }
+        let recipe = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.set(recipe: recipe)
         
         return cell
+                
     }
 }

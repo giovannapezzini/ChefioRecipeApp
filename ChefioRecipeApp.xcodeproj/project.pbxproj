@@ -29,6 +29,7 @@
 		1347096825AD24FC002C4078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1347096725AD24FC002C4078 /* README.md */; };
 		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
+		137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D655425D9F9410011C148 /* RecipeViewModel.swift */; };
 		13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F23125CCD17100567D2A /* RecipeCell.swift */; };
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
 		13E0AAA225AFCA23002EEEA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA125AFCA23002EEEA3 /* Validation.swift */; };
@@ -61,6 +62,7 @@
 		1347096725AD24FC002C4078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		137D655425D9F9410011C148 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		13C5F23125CCD17100567D2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		13E0AAA125AFCA23002EEEA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
@@ -107,14 +109,12 @@
 		130DF85A25A81F1F0081386A /* ChefioRecipeApp */ = {
 			isa = PBXGroup;
 			children = (
-				134198AE25B12A0A000D98F7 /* Managers */,
 				134198A825B12701000D98F7 /* Model */,
+				137D656525DA08860011C148 /* View */,
+				137D655325D9F9270011C148 /* ViewModel */,
+				134198AE25B12A0A000D98F7 /* Networking */,
 				130DF88D25A82CE60081386A /* Utilities */,
 				1335EA4F25A8582500024059 /* Extensions */,
-				130DF8A225A836F10081386A /* Text Fields */,
-				130DF89725A82E530081386A /* ViewControllers */,
-				130DF88B25A82CCB0081386A /* Buttons */,
-				13C5F21525CCACAB00567D2A /* Cell */,
 				130DF88925A82CC20081386A /* Labels */,
 				130DF87125A822E50081386A /* Fonts */,
 				130DF89525A82E150081386A /* Support */,
@@ -209,12 +209,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		134198AE25B12A0A000D98F7 /* Managers */ = {
+		134198AE25B12A0A000D98F7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				134198AF25B12A21000D98F7 /* NetworkManager.swift */,
 			);
-			path = Managers;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		1347096625AD24E3002C4078 /* Documentation */ = {
@@ -223,6 +223,25 @@
 				1347096C25AD25F0002C4078 /* AppBanner.png */,
 			);
 			path = Documentation;
+			sourceTree = "<group>";
+		};
+		137D655325D9F9270011C148 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				137D655425D9F9410011C148 /* RecipeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		137D656525DA08860011C148 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				13C5F21525CCACAB00567D2A /* Cell */,
+				130DF88B25A82CCB0081386A /* Buttons */,
+				130DF8A225A836F10081386A /* Text Fields */,
+				130DF89725A82E530081386A /* ViewControllers */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		13C5F21525CCACAB00567D2A /* Cell */ = {
@@ -378,6 +397,7 @@
 				1335EA5625A8586100024059 /* UIView+Ext.swift in Sources */,
 				130DF88725A82C2D0081386A /* HeaderLabel.swift in Sources */,
 				130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */,
+				137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */,
 				130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */,
 				135062A925AAF16300339668 /* SignUpViewController.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
@@ -530,6 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5BS2K2345;
 				INFOPLIST_FILE = ChefioRecipeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,6 +571,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5BS2K2345;
 				INFOPLIST_FILE = ChefioRecipeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -29,6 +29,7 @@
 		1347096825AD24FC002C4078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1347096725AD24FC002C4078 /* README.md */; };
 		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
+		1370F0A725DC47E900E03791 /* RectangularDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1370F0A625DC47E900E03791 /* RectangularDashedView.swift */; };
 		137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D655425D9F9410011C148 /* RecipeViewModel.swift */; };
 		13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F23125CCD17100567D2A /* RecipeCell.swift */; };
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
@@ -63,6 +64,7 @@
 		1347096725AD24FC002C4078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1370F0A625DC47E900E03791 /* RectangularDashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDashedView.swift; sourceTree = "<group>"; };
 		137D655425D9F9410011C148 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		13C5F23125CCD17100567D2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -228,6 +230,25 @@
 			path = Documentation;
 			sourceTree = "<group>";
 		};
+		1370F0A925DC47F300E03791 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				1370F0AA25DC480200E03791 /* View */,
+				13C5F21525CCACAB00567D2A /* Cell */,
+				130DF88B25A82CCB0081386A /* Buttons */,
+				130DF8A225A836F10081386A /* Text Fields */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		1370F0AA25DC480200E03791 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1370F0A625DC47E900E03791 /* RectangularDashedView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		137D655325D9F9270011C148 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,10 +260,8 @@
 		137D656525DA08860011C148 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1370F0A925DC47F300E03791 /* Custom Views */,
 				13E1D98325DB4E0800BD278C /* TabBar */,
-				13C5F21525CCACAB00567D2A /* Cell */,
-				130DF88B25A82CCB0081386A /* Buttons */,
-				130DF8A225A836F10081386A /* Text Fields */,
 				130DF89725A82E530081386A /* ViewControllers */,
 			);
 			path = View;
@@ -291,7 +310,7 @@
 				130DF85425A81F1F0081386A /* Sources */,
 				130DF85525A81F1F0081386A /* Frameworks */,
 				130DF85625A81F1F0081386A /* Resources */,
-				220609FCB8B6ADDE685E24BD /* [CP] Embed Pods Frameworks */,
+				B46545987C460F22A242F59F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -352,23 +371,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		220609FCB8B6ADDE685E24BD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		26CCE519FD08C77A1BBF9675 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +391,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B46545987C460F22A242F59F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChefioRecipeApp/Pods-ChefioRecipeApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -413,6 +432,7 @@
 				130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */,
 				135062A925AAF16300339668 /* SignUpViewController.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
+				1370F0A725DC47E900E03791 /* RectangularDashedView.swift in Sources */,
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,
 				13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */,

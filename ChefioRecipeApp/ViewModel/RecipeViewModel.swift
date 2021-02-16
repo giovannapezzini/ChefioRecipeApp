@@ -18,7 +18,6 @@ class RecipeViewModel {
             switch result {
             case .success(let recipes):
                 self?.randomRecipes = recipes.recipes
-                print(recipes)
                 completion()
             case .failure(let error):
                 print("Error processing json data: \(error)")

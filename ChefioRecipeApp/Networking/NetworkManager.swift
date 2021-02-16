@@ -42,7 +42,6 @@ class NetworkManager {
                 // Back to the main thread
                 DispatchQueue.main.async {
                     completion(.success(jsonData))
-                    print(jsonData)
                 }
             } catch {
                 completion(.failure(.invalidData))

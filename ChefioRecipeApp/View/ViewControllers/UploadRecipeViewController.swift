@@ -25,10 +25,17 @@ class UploadRecipeViewController: UIViewController {
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.tintColor = .red
         
+        progressLabel.translatesAutoresizingMaskIntoConstraints = false
+        progressLabel.text = "1/2"
+        
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
             cancelButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            cancelButton.trailingAnchor.constraint(equalTo: progressLabel.leadingAnchor),
+            
+            progressLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            progressLabel.leadingAnchor.constraint(equalTo: cancelButton.trailingAnchor),
+            progressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
         ])
     }
 }

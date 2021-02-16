@@ -18,19 +18,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let mainView = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: mainView)
-
+        configureNavigationBar()
+        
+        let tabBar = UITabBarController()
+        tabBar.viewControllers = setTabBarControllers()
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
         
-        configureNavigationBar()
     }
     
     func configureNavigationBar() {
         UINavigationBar.appearance().tintColor = Colors.primaryColor
+    }
+    
+    func setTabBarControllers() -> [UINavigationController] {
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().tintColor = Colors.primaryColor
+        
+        let firstView = HomeViewController()
+        firstView.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "Home"), tag: 0)
+        let vc1 = UINavigationController(rootViewController: firstView)
+        
+        let secondView = UploadRecipeViewController()
+        secondView.tabBarItem = UITabBarItem(title: "Upload", image: UIImage(named: "Upload"), tag: 1)
+        let vc2 = UINavigationController(rootViewController: secondView)
+        
+        let thirdView = UploadRecipeViewController()
+        thirdView.tabBarItem = UITabBarItem(title: "Notification", image: UIImage(named: "Notification"), tag: 2)
+        let vc3 = UINavigationController(rootViewController: thirdView)
+        
+        let fourthView = UploadRecipeViewController()
+        fourthView.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "Profile"), tag: 3)
+        let vc4 = UINavigationController(rootViewController: fourthView)
+                
+        return [vc1, vc2, vc3, vc4]
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

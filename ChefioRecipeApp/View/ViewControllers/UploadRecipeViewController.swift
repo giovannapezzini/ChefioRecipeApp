@@ -11,7 +11,7 @@ class UploadRecipeViewController: UIViewController {
 
     let cancelButton = UIButton()
     let progressLabel = UILabel()
-    let coverView = UIView()
+    let coverView = RectangularDashedView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

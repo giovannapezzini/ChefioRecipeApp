@@ -11,7 +11,11 @@ class UploadRecipeViewController: UIViewController {
 
     let cancelButton = UIButton()
     let progressLabel = UILabel()
+    
     let coverView = RectangularDashedView()
+    let imageView = UIImageView()
+    let addCoverLabel = UILabel()
+    let descriptionLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +36,25 @@ class UploadRecipeViewController: UIViewController {
         progressLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         progressLabel.textColor = Colors.mainTextColor
         
+        // Upload View
         coverView.translatesAutoresizingMaskIntoConstraints = false
+        coverView.addSubview(imageView, addCoverLabel, descriptionLabel)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "UploadImage")
+        imageView.contentMode = .scaleAspectFit
+        
+        addCoverLabel.translatesAutoresizingMaskIntoConstraints = false
+        addCoverLabel.text = "Add Cover Photo"
+        addCoverLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        addCoverLabel.textColor = Colors.mainTextColor
+        addCoverLabel.numberOfLines = 0
+        
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.text = "(up to 12 Mb)"
+        descriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        descriptionLabel.textColor = Colors.secondaryTextColor
+        descriptionLabel.numberOfLines = 0
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -44,7 +66,16 @@ class UploadRecipeViewController: UIViewController {
             coverView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
             coverView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             coverView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            coverView.heightAnchor.constraint(equalToConstant: 160)
+            coverView.heightAnchor.constraint(equalToConstant: 160),
+            
+            imageView.topAnchor.constraint(equalTo: coverView.topAnchor, constant: 22),
+            imageView.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+            
+            descriptionLabel.bottomAnchor.constraint(equalTo: coverView.bottomAnchor, constant: -22),
+            descriptionLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+            
+            addCoverLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -4),
+            addCoverLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor)
         ])
     }
 }

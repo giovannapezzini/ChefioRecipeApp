@@ -14,8 +14,8 @@ class UploadRecipeViewController: UIViewController {
     
     let coverView = RectangularDashedView()
     let imageView = UIImageView()
-    let addCoverLabel = UILabel()
-    let descriptionLabel = UILabel()
+    let addCoverLabel = HeaderLabel()
+    let descriptionLabel = BodyLabel(textAlignment: .center, fontSize: 15)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,15 +46,9 @@ class UploadRecipeViewController: UIViewController {
         
         addCoverLabel.translatesAutoresizingMaskIntoConstraints = false
         addCoverLabel.text = "Add Cover Photo"
-        addCoverLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        addCoverLabel.textColor = Colors.mainTextColor
-        addCoverLabel.numberOfLines = 0
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = "(up to 12 Mb)"
-        descriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        descriptionLabel.textColor = Colors.secondaryTextColor
-        descriptionLabel.numberOfLines = 0
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),

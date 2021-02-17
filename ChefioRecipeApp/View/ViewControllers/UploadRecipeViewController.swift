@@ -17,6 +17,8 @@ class UploadRecipeViewController: UIViewController {
     let addCoverLabel = HeaderLabel()
     let descriptionLabel = BodyLabel(textAlignment: .center, fontSize: 15)
     
+    let foodLabel = HeaderLabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Upload"
@@ -26,7 +28,7 @@ class UploadRecipeViewController: UIViewController {
     }
     
     func layoutUI() {
-        view.addSubview(cancelButton, progressLabel, coverView)
+        view.addSubview(cancelButton, progressLabel, coverView, foodLabel)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.red, for: .normal)
@@ -44,11 +46,10 @@ class UploadRecipeViewController: UIViewController {
         imageView.image = UIImage(named: "UploadImage")
         imageView.contentMode = .scaleAspectFit
         
-        addCoverLabel.translatesAutoresizingMaskIntoConstraints = false
         addCoverLabel.text = "Add Cover Photo"
-        
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = "(up to 12 Mb)"
+        
+        foodLabel.text = "Food Name"
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -69,7 +70,10 @@ class UploadRecipeViewController: UIViewController {
             descriptionLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
             
             addCoverLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -4),
-            addCoverLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor)
+            addCoverLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+            
+            foodLabel.topAnchor.constraint(equalTo: coverView.bottomAnchor, constant: 24),
+            foodLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24)
         ])
     }
 }

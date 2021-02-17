@@ -26,7 +26,7 @@ class HeaderLabel: UILabel {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        font = UIFont(name: "Inter-Bold", size: 22)
+        font = UIFont(name: "Inter-Bold", size: 17)
         textColor = Colors.mainTextColor
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9

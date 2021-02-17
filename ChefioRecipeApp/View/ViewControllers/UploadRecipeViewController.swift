@@ -18,6 +18,7 @@ class UploadRecipeViewController: UIViewController {
     let descriptionLabel = BodyLabel(textAlignment: .center, fontSize: 15)
     
     let foodLabel = HeaderLabel()
+    let foodTextField = TextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class UploadRecipeViewController: UIViewController {
     }
     
     func layoutUI() {
-        view.addSubview(cancelButton, progressLabel, coverView, foodLabel)
+        view.addSubview(cancelButton, progressLabel, coverView, foodLabel, foodTextField)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.red, for: .normal)
@@ -50,6 +51,8 @@ class UploadRecipeViewController: UIViewController {
         descriptionLabel.text = "(up to 12 Mb)"
         
         foodLabel.text = "Food Name"
+        
+        foodTextField.placeholder = "Enter food name"
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -73,7 +76,12 @@ class UploadRecipeViewController: UIViewController {
             addCoverLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
             
             foodLabel.topAnchor.constraint(equalTo: coverView.bottomAnchor, constant: 24),
-            foodLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24)
+            foodLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            
+            foodTextField.topAnchor.constraint(equalTo: foodLabel.bottomAnchor, constant: 14),
+            foodTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            foodTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            foodTextField.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
 }

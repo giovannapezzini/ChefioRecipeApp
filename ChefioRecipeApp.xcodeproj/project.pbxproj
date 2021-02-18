@@ -20,6 +20,8 @@
 		130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF89225A82DFA0081386A /* SignInViewController.swift */; };
 		130DF8A425A837140081386A /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF8A325A837140081386A /* TextField.swift */; };
 		1314C05325DDECA70023E3E3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314C05225DDECA70023E3E3 /* TextView.swift */; };
+		1314C05725DDFE700023E3E3 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314C05625DDFE700023E3E3 /* Slider.swift */; };
+		1314C05D25DE260F0023E3E3 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314C05C25DE260F0023E3E3 /* ImagePickerButton.swift */; };
 		1314E7A925AD938700780B37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1314E7A825AD938700780B37 /* GoogleService-Info.plist */; };
 		131BE42325AC611D000974FC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BE42225AC611D000974FC /* UIViewController+Ext.swift */; };
 		1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
@@ -30,7 +32,6 @@
 		1347096825AD24FC002C4078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1347096725AD24FC002C4078 /* README.md */; };
 		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
-		1370F0A725DC47E900E03791 /* RectangularDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1370F0A625DC47E900E03791 /* RectangularDashedView.swift */; };
 		137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D655425D9F9410011C148 /* RecipeViewModel.swift */; };
 		13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F23125CCD17100567D2A /* RecipeCell.swift */; };
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
@@ -56,6 +57,8 @@
 		130DF89225A82DFA0081386A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		130DF8A325A837140081386A /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1314C05225DDECA70023E3E3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		1314C05625DDFE700023E3E3 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		1314C05C25DE260F0023E3E3 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 		1314E7A825AD938700780B37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		131BE42225AC611D000974FC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		1347096725AD24FC002C4078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		1370F0A625DC47E900E03791 /* RectangularDashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDashedView.swift; sourceTree = "<group>"; };
 		137D655425D9F9410011C148 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		13C5F23125CCD17100567D2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				130DF87B25A8274C0081386A /* PrimaryButton.swift */,
+				1314C05C25DE260F0023E3E3 /* ImagePickerButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -198,6 +201,14 @@
 			path = "Text Fields";
 			sourceTree = "<group>";
 		};
+		1314C05525DDFE5E0023E3E3 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				1314C05625DDFE700023E3E3 /* Slider.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
 		1335EA4F25A8582500024059 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +246,7 @@
 		1370F0A925DC47F300E03791 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				1314C05525DDFE5E0023E3E3 /* Slider */,
 				130DF88925A82CC20081386A /* Labels */,
 				1370F0AA25DC480200E03791 /* View */,
 				13C5F21525CCACAB00567D2A /* Cell */,
@@ -247,7 +259,6 @@
 		1370F0AA25DC480200E03791 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1370F0A625DC47E900E03791 /* RectangularDashedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -434,14 +445,15 @@
 				130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */,
 				137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */,
 				130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */,
+				1314C05725DDFE700023E3E3 /* Slider.swift in Sources */,
 				135062A925AAF16300339668 /* SignUpViewController.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
-				1370F0A725DC47E900E03791 /* RectangularDashedView.swift in Sources */,
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,
 				13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */,
 				130DF87C25A8274C0081386A /* PrimaryButton.swift in Sources */,
 				134198AA25B1270D000D98F7 /* Recipe.swift in Sources */,
+				1314C05D25DE260F0023E3E3 /* ImagePickerButton.swift in Sources */,
 				13E0AAA225AFCA23002EEEA3 /* Validation.swift in Sources */,
 				130DF85E25A81F1F0081386A /* SceneDelegate.swift in Sources */,
 			);

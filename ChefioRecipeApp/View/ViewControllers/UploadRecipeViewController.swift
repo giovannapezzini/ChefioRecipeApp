@@ -12,13 +12,16 @@ class UploadRecipeViewController: UIViewController {
     let cancelButton = UIButton()
     let progressLabel = UILabel()
     
-    let coverView = RectangularDashedView()
+    let imagePickerView = RectangularDashedView()
     let imageView = UIImageView()
-    let addCoverLabel = HeaderLabel()
-    let descriptionLabel = BodyLabel(textAlignment: .center, fontSize: 15)
+    let titleUploadLabel = HeaderLabel()
+    let descriptionUploadLabel = BodyLabel(textAlignment: .center, fontSize: 15)
     
     let foodLabel = HeaderLabel()
     let foodTextField = TextField()
+    
+    let descriptionLabel = HeaderLabel()
+    let descriptionTextField = TextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,8 @@ class UploadRecipeViewController: UIViewController {
     }
     
     func layoutUI() {
-        view.addSubview(cancelButton, progressLabel, coverView, foodLabel, foodTextField)
+        view.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField)
+        
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.red, for: .normal)
@@ -40,19 +44,22 @@ class UploadRecipeViewController: UIViewController {
         progressLabel.textColor = Colors.mainTextColor
         
         // Upload View
-        coverView.translatesAutoresizingMaskIntoConstraints = false
-        coverView.addSubview(imageView, addCoverLabel, descriptionLabel)
+        imagePickerView.translatesAutoresizingMaskIntoConstraints = false
+        imagePickerView.addSubview(imageView, titleUploadLabel, descriptionUploadLabel)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "UploadImage")
         imageView.contentMode = .scaleAspectFit
         
-        addCoverLabel.text = "Add Cover Photo"
-        descriptionLabel.text = "(up to 12 Mb)"
+        titleUploadLabel.text = "Add Cover Photo"
+        descriptionUploadLabel.text = "(up to 12 Mb)"
         
+        // Food Name
         foodLabel.text = "Food Name"
-        
         foodTextField.placeholder = "Enter food name"
+        
+        // Description
+        descriptionLabel.text = "Description"
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -61,27 +68,35 @@ class UploadRecipeViewController: UIViewController {
             progressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
             progressLabel.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
             
-            coverView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
-            coverView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            coverView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            coverView.heightAnchor.constraint(equalToConstant: 160),
+            imagePickerView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
+            imagePickerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            imagePickerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            imagePickerView.heightAnchor.constraint(equalToConstant: 160),
             
-            imageView.topAnchor.constraint(equalTo: coverView.topAnchor, constant: 22),
-            imageView.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: imagePickerView.topAnchor, constant: 22),
+            imageView.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
             
-            descriptionLabel.bottomAnchor.constraint(equalTo: coverView.bottomAnchor, constant: -22),
-            descriptionLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+            descriptionUploadLabel.bottomAnchor.constraint(equalTo: imagePickerView.bottomAnchor, constant: -22),
+            descriptionUploadLabel.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
             
-            addCoverLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -4),
-            addCoverLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+            titleUploadLabel.bottomAnchor.constraint(equalTo: descriptionUploadLabel.topAnchor, constant: -4),
+            titleUploadLabel.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
             
-            foodLabel.topAnchor.constraint(equalTo: coverView.bottomAnchor, constant: 24),
+            foodLabel.topAnchor.constraint(equalTo: imagePickerView.bottomAnchor, constant: 24),
             foodLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             
             foodTextField.topAnchor.constraint(equalTo: foodLabel.bottomAnchor, constant: 14),
             foodTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             foodTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            foodTextField.heightAnchor.constraint(equalToConstant: 56)
+            foodTextField.heightAnchor.constraint(equalToConstant: 56),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: foodTextField.bottomAnchor, constant: 24),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            
+            descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 14),
+            descriptionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            descriptionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            descriptionTextField.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
 }

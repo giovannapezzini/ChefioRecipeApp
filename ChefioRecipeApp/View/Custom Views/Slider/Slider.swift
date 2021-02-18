@@ -35,6 +35,7 @@ class Slider: UISlider {
     }
     
     func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
         thumbTintColor = Colors.primaryColor
         minimumTrackTintColor = Colors.primaryColor
         maximumTrackTintColor = Colors.form

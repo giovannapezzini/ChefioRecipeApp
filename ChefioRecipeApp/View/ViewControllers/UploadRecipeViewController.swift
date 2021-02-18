@@ -9,6 +9,23 @@ import UIKit
 
 class UploadRecipeViewController: UIViewController {
 
+    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height - 80)
+    
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView(frame: .zero)
+        view.frame = self.view.bounds
+        view.contentSize = contentViewSize
+        view.autoresizingMask = .flexibleHeight
+        view.bounces = true
+        return view
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.frame.size = contentViewSize
+        return view
+    }()
+    
     let cancelButton = UIButton()
     let progressLabel = UILabel()
     
@@ -38,7 +55,11 @@ class UploadRecipeViewController: UIViewController {
     }
     
     func layoutUI() {
-        view.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
+        
+        var padding: CGFloat = 24
         
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
@@ -72,15 +93,15 @@ class UploadRecipeViewController: UIViewController {
         cookingDescriptionLabel.text = "(in minutes)"
         
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            cancelButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            cancelButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            cancelButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             
-            progressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            progressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             progressLabel.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
             
             imagePickerView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
-            imagePickerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            imagePickerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            imagePickerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            imagePickerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             imagePickerView.heightAnchor.constraint(equalToConstant: 160),
             
             imageView.topAnchor.constraint(equalTo: imagePickerView.topAnchor, constant: 22),
@@ -92,35 +113,34 @@ class UploadRecipeViewController: UIViewController {
             titleUploadLabel.bottomAnchor.constraint(equalTo: descriptionUploadLabel.topAnchor, constant: -4),
             titleUploadLabel.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
             
-            foodLabel.topAnchor.constraint(equalTo: imagePickerView.bottomAnchor, constant: 24),
-            foodLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            
+            foodLabel.topAnchor.constraint(equalTo: imagePickerView.bottomAnchor, constant: padding),
+            foodLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             foodTextField.topAnchor.constraint(equalTo: foodLabel.bottomAnchor, constant: 14),
-            foodTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            foodTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            foodTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            foodTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             foodTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            descriptionLabel.topAnchor.constraint(equalTo: foodTextField.bottomAnchor, constant: 24),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            descriptionLabel.topAnchor.constraint(equalTo: foodTextField.bottomAnchor, constant: padding),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             
             descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 14),
-            descriptionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            descriptionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            descriptionTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            descriptionTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             descriptionTextField.heightAnchor.constraint(equalToConstant: 86),
             
-            cookingDurationLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 24),
-            cookingDurationLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            cookingDurationLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: padding),
+            cookingDurationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             
             cookingDescriptionLabel.centerYAnchor.constraint(equalTo: cookingDurationLabel.centerYAnchor),
             cookingDescriptionLabel.leadingAnchor.constraint(equalTo: cookingDurationLabel.trailingAnchor, constant: 5),
             
             cookingDurationSlider.topAnchor.constraint(equalTo: cookingDurationLabel.bottomAnchor, constant: 50),
-            cookingDurationSlider.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            cookingDurationSlider.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            cookingDurationSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            cookingDurationSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             
-            nextButton.topAnchor.constraint(equalTo: cookingDurationSlider.bottomAnchor, constant: 24),
-            nextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            nextButton.topAnchor.constraint(equalTo: cookingDurationSlider.bottomAnchor, constant: padding),
+            nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             nextButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }

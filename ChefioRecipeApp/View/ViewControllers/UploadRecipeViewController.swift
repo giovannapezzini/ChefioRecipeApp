@@ -8,6 +8,8 @@
 import UIKit
 
 class UploadRecipeViewController: UIViewController {
+    
+    // MARK:  - ScrollView
 
     lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height - 80)
     
@@ -25,6 +27,8 @@ class UploadRecipeViewController: UIViewController {
         view.frame.size = contentViewSize
         return view
     }()
+    
+    // MARK:  - Properties
     
     let cancelButton = UIButton()
     let progressLabel = UILabel()
@@ -46,6 +50,8 @@ class UploadRecipeViewController: UIViewController {
     
     let nextButton = PrimaryButton(title: "Next", backgroundColor: Colors.primaryColor)
     
+    // MARK:  - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Upload"
@@ -54,12 +60,14 @@ class UploadRecipeViewController: UIViewController {
         layoutUI()
     }
     
+    // MARK:  - Layout UI
+    
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
         
-        var padding: CGFloat = 24
+        let padding: CGFloat = 24
         
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)

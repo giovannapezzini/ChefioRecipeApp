@@ -33,10 +33,7 @@ class UploadRecipeViewController: UIViewController {
     let cancelButton = UIButton()
     let progressLabel = UILabel()
     
-    let imagePickerView = RectangularDashedView()
-    let imageView = UIImageView()
-    let titleUploadLabel = HeaderLabel()
-    let descriptionUploadLabel = BodyLabel(textAlignment: .center, fontSize: 15)
+    let imagePickerButton = ImagePickerButton()
     
     let foodLabel = HeaderLabel()
     let foodTextField = TextField()
@@ -58,6 +55,7 @@ class UploadRecipeViewController: UIViewController {
         view.backgroundColor = .white
         
         layoutUI()
+        configureImagePickerView()
     }
     
     // MARK:  - Layout UI
@@ -65,7 +63,7 @@ class UploadRecipeViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
+        contentView.addSubview(cancelButton, progressLabel, imagePickerButton, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
         
         let padding: CGFloat = 24
         
@@ -77,17 +75,6 @@ class UploadRecipeViewController: UIViewController {
         progressLabel.text = "1/2"
         progressLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         progressLabel.textColor = Colors.mainTextColor
-        
-        // Upload View
-        imagePickerView.translatesAutoresizingMaskIntoConstraints = false
-        imagePickerView.addSubview(imageView, titleUploadLabel, descriptionUploadLabel)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "UploadImage")
-        imageView.contentMode = .scaleAspectFit
-        
-        titleUploadLabel.text = "Add Cover Photo"
-        descriptionUploadLabel.text = "(up to 12 Mb)"
         
         // Food Name
         foodLabel.text = "Food Name"
@@ -107,21 +94,12 @@ class UploadRecipeViewController: UIViewController {
             progressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             progressLabel.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
             
-            imagePickerView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
-            imagePickerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            imagePickerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            imagePickerView.heightAnchor.constraint(equalToConstant: 160),
+            imagePickerButton.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
+            imagePickerButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            imagePickerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            imagePickerButton.heightAnchor.constraint(equalToConstant: 160),
             
-            imageView.topAnchor.constraint(equalTo: imagePickerView.topAnchor, constant: 22),
-            imageView.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
-            
-            descriptionUploadLabel.bottomAnchor.constraint(equalTo: imagePickerView.bottomAnchor, constant: -22),
-            descriptionUploadLabel.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
-            
-            titleUploadLabel.bottomAnchor.constraint(equalTo: descriptionUploadLabel.topAnchor, constant: -4),
-            titleUploadLabel.centerXAnchor.constraint(equalTo: imagePickerView.centerXAnchor),
-            
-            foodLabel.topAnchor.constraint(equalTo: imagePickerView.bottomAnchor, constant: padding),
+            foodLabel.topAnchor.constraint(equalTo: imagePickerButton.bottomAnchor, constant: padding),
             foodLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             foodTextField.topAnchor.constraint(equalTo: foodLabel.bottomAnchor, constant: 14),
             foodTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
@@ -151,5 +129,50 @@ class UploadRecipeViewController: UIViewController {
             nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             nextButton.heightAnchor.constraint(equalToConstant: 56)
         ])
+    }
+    
+    var selectedImage = UIImage()
+    
+    func configureImagePickerView() {
+        imagePickerButton.addTarget(self, action: #selector(importPicture), for: .touchUpInside)
+    }
+    
+    @objc func importPicture() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func showImage() {
+        imagePickerButton.removeFromSuperview()
+        
+        let recipeImageView = UIImageView()
+        recipeImageView.image = selectedImage
+        
+        contentView.addSubview(recipeImageView)
+        
+        recipeImageView.translatesAutoresizingMaskIntoConstraints = false
+        recipeImageView.backgroundColor = .red
+        
+        NSLayoutConstraint.activate([
+            recipeImageView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
+            recipeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            recipeImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            recipeImageView.heightAnchor.constraint(equalToConstant: 160),
+            
+            foodLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 24)
+        ])
+    }
+}
+
+extension UploadRecipeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        dismiss(animated: true)
+        
+        selectedImage = image
+        showImage()
     }
 }

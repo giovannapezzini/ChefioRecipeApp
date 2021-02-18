@@ -13,6 +13,10 @@ class Slider: UISlider {
     private var lastIndex: Int? = nil
     let callback: (Float) -> Void
     
+    let text1 = HeaderLabel()
+    let text2 = HeaderLabel()
+    let text3 = HeaderLabel()
+    
     init(frame: CGRect, values: [Float], callback: @escaping (_ newValue: Float) -> Void) {
         self.values = values
         self.callback = callback
@@ -34,6 +38,31 @@ class Slider: UISlider {
         thumbTintColor = Colors.primaryColor
         minimumTrackTintColor = Colors.primaryColor
         maximumTrackTintColor = Colors.form
+        
+        addSubview(text1, text2, text3)
+        
+        text1.translatesAutoresizingMaskIntoConstraints = false
+        text1.text = "<10"
+        text1.textColor = Colors.primaryColor
+        
+        text2.translatesAutoresizingMaskIntoConstraints = false
+        text2.text = "30"
+        text2.textColor = Colors.secondaryTextColor
+        
+        text3.translatesAutoresizingMaskIntoConstraints = false
+        text3.text = ">60"
+        text3.textColor = Colors.secondaryTextColor
+        
+        NSLayoutConstraint.activate([
+            text1.bottomAnchor.constraint(equalTo: self.topAnchor, constant: -10),
+            text1.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            
+            text2.bottomAnchor.constraint(equalTo: self.topAnchor, constant: -10),
+            text2.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            text3.bottomAnchor.constraint(equalTo: self.topAnchor, constant: -10),
+            text3.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
     
     @objc func handleValueChange(sender: UISlider) {
@@ -45,6 +74,9 @@ class Slider: UISlider {
             let actualValue = self.values[newIndex]
             self.callback(actualValue)
         }
+        
+        if newIndex >= 1 { text2.textColor = Colors.primaryColor } else { text2.textColor = Colors.secondaryTextColor }
+        if newIndex == 2 { text3.textColor = Colors.primaryColor } else { text3.textColor = Colors.secondaryTextColor }
     }
     
     var trackWidth: CGFloat = 6 {

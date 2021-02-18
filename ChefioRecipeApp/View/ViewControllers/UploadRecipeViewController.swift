@@ -25,7 +25,7 @@ class UploadRecipeViewController: UIViewController {
     
     let cookingDurationLabel = HeaderLabel()
     let cookingDescriptionLabel = BodyLabel(textAlignment: .left, fontSize: 15)
-    let cookingDurationSlider = Slider(frame: CGRect(x: 0, y: 0, width: 327, height: 10), values: [10, 15, 30, 45, 60]) { _ in
+    let cookingDurationSlider = Slider(frame: CGRect(x: 0, y: 0, width: 327, height: 10), values: [10, 30, 60]) { _ in
     }
     
     override func viewDidLoad() {
@@ -114,7 +114,7 @@ class UploadRecipeViewController: UIViewController {
             cookingDescriptionLabel.centerYAnchor.constraint(equalTo: cookingDurationLabel.centerYAnchor),
             cookingDescriptionLabel.leadingAnchor.constraint(equalTo: cookingDurationLabel.trailingAnchor, constant: 5),
             
-            cookingDurationSlider.topAnchor.constraint(equalTo: cookingDurationLabel.bottomAnchor, constant: 24),
+            cookingDurationSlider.topAnchor.constraint(equalTo: cookingDurationLabel.bottomAnchor, constant: 50),
             cookingDurationSlider.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             cookingDurationSlider.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
         ])

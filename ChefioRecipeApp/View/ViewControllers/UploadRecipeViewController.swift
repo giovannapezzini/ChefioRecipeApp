@@ -25,6 +25,8 @@ class UploadRecipeViewController: UIViewController {
     
     let cookingDurationLabel = HeaderLabel()
     let cookingDescriptionLabel = BodyLabel(textAlignment: .left, fontSize: 15)
+    let cookingDurationSlider = Slider(frame: CGRect(x: 0, y: 0, width: 327, height: 10), values: [10, 15, 30, 45, 60]) { _ in
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class UploadRecipeViewController: UIViewController {
     }
     
     func layoutUI() {
-        view.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel)
+        view.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider)
         
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
@@ -67,6 +69,7 @@ class UploadRecipeViewController: UIViewController {
         // Cooking Duration
         cookingDurationLabel.text = "Cooking Duration"
         cookingDescriptionLabel.text = "(in minutes)"
+        cookingDurationSlider.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -110,6 +113,10 @@ class UploadRecipeViewController: UIViewController {
             
             cookingDescriptionLabel.centerYAnchor.constraint(equalTo: cookingDurationLabel.centerYAnchor),
             cookingDescriptionLabel.leadingAnchor.constraint(equalTo: cookingDurationLabel.trailingAnchor, constant: 5),
+            
+            cookingDurationSlider.topAnchor.constraint(equalTo: cookingDurationLabel.bottomAnchor, constant: 24),
+            cookingDurationSlider.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            cookingDurationSlider.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
         ])
     }
 }

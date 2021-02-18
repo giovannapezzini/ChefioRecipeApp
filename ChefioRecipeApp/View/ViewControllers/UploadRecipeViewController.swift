@@ -96,7 +96,7 @@ class UploadRecipeViewController: UIViewController {
             descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 14),
             descriptionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             descriptionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            descriptionTextField.heightAnchor.constraint(equalToConstant: 80)
+            descriptionTextField.heightAnchor.constraint(equalToConstant: 86)
         ])
     }
 }

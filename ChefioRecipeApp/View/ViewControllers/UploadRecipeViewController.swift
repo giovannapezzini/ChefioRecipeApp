@@ -51,9 +51,8 @@ class UploadRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Upload"
-        view.backgroundColor = .white
         
+        setupView()
         layoutUI()
         configureImagePickerView()
     }
@@ -130,6 +129,16 @@ class UploadRecipeViewController: UIViewController {
             nextButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
+    
+    // MARK:  - Configure View
+    
+    func setupView() {
+        title = "Upload"
+        view.backgroundColor = .white
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    // MARK:  - Image Picker methods
         
     func configureImagePickerView() {
         imagePickerButton.addTarget(self, action: #selector(importPicture), for: .touchUpInside)

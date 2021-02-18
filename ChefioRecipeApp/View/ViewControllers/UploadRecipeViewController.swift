@@ -23,6 +23,9 @@ class UploadRecipeViewController: UIViewController {
     let descriptionLabel = HeaderLabel()
     let descriptionTextField = TextView()
     
+    let cookingDurationLabel = HeaderLabel()
+    let cookingDescriptionLabel = BodyLabel(textAlignment: .left, fontSize: 15)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Upload"
@@ -32,7 +35,7 @@ class UploadRecipeViewController: UIViewController {
     }
     
     func layoutUI() {
-        view.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField)
+        view.addSubview(cancelButton, progressLabel, imagePickerView, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel)
         
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
@@ -60,6 +63,10 @@ class UploadRecipeViewController: UIViewController {
         
         // Description
         descriptionLabel.text = "Description"
+        
+        // Cooking Duration
+        cookingDurationLabel.text = "Cooking Duration"
+        cookingDescriptionLabel.text = "(in minutes)"
         
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -96,7 +103,13 @@ class UploadRecipeViewController: UIViewController {
             descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 14),
             descriptionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             descriptionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
-            descriptionTextField.heightAnchor.constraint(equalToConstant: 86)
+            descriptionTextField.heightAnchor.constraint(equalToConstant: 86),
+            
+            cookingDurationLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 24),
+            cookingDurationLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            
+            cookingDescriptionLabel.centerYAnchor.constraint(equalTo: cookingDurationLabel.centerYAnchor),
+            cookingDescriptionLabel.leadingAnchor.constraint(equalTo: cookingDurationLabel.trailingAnchor, constant: 5),
         ])
     }
 }

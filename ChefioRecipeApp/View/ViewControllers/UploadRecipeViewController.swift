@@ -34,7 +34,7 @@ class UploadRecipeViewController: UIViewController {
     let progressLabel = UILabel()
     
     let imagePickerButton = ImagePickerButton()
-    
+
     let foodLabel = HeaderLabel()
     let foodTextField = TextField()
     
@@ -130,9 +130,7 @@ class UploadRecipeViewController: UIViewController {
             nextButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
-    
-    var selectedImage = UIImage()
-    
+        
     func configureImagePickerView() {
         imagePickerButton.addTarget(self, action: #selector(importPicture), for: .touchUpInside)
     }
@@ -144,16 +142,21 @@ class UploadRecipeViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    func showImage() {
+    func showImage(image: UIImage) {
         imagePickerButton.removeFromSuperview()
         
         let recipeImageView = UIImageView()
-        recipeImageView.image = selectedImage
-        
-        contentView.addSubview(recipeImageView)
-        
         recipeImageView.translatesAutoresizingMaskIntoConstraints = false
-        recipeImageView.backgroundColor = .red
+        recipeImageView.image = image
+        recipeImageView.contentMode = .scaleAspectFill
+        recipeImageView.clipsToBounds = true
+        recipeImageView.layer.cornerRadius = 16
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(importPicture))
+        recipeImageView.isUserInteractionEnabled = true
+        recipeImageView.addGestureRecognizer(tapGestureRecognizer)
+
+        contentView.addSubview(recipeImageView)
         
         NSLayoutConstraint.activate([
             recipeImageView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
@@ -172,7 +175,6 @@ extension UploadRecipeViewController: UIImagePickerControllerDelegate & UINaviga
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true)
         
-        selectedImage = image
-        showImage()
+        showImage(image: image)
     }
 }

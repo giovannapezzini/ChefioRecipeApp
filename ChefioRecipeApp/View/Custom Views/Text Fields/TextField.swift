@@ -11,7 +11,7 @@ class TextField: UITextField, UITextFieldDelegate {
     
     var leftImage: UIImage? = nil
     var rightImage: UIImage? = nil
-    var sidePadding: CGFloat = 24
+    var sidePadding: CGFloat = 16
     var gapPadding: CGFloat = 10
     
     override init(frame: CGRect) {

@@ -188,6 +188,8 @@ class UploadRecipeViewController: UIViewController {
     }
 }
 
+// MARK:  - Image Picker Delegate
+
 extension UploadRecipeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -32,6 +32,7 @@
 		1347096825AD24FC002C4078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1347096725AD24FC002C4078 /* README.md */; };
 		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
+		137B2B9E25DF7E6100DB544B /* UploadIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */; };
 		137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D655425D9F9410011C148 /* RecipeViewModel.swift */; };
 		13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F23125CCD17100567D2A /* RecipeCell.swift */; };
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
@@ -69,6 +70,7 @@
 		1347096725AD24FC002C4078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIngredientsViewController.swift; sourceTree = "<group>"; };
 		137D655425D9F9410011C148 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		13C5F23125CCD17100567D2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				135062A825AAF16300339668 /* SignUpViewController.swift */,
 				13E0AAA725B016A6002EEEA3 /* HomeViewController.swift */,
 				13E1D98025DB4B4F00BD278C /* UploadRecipeViewController.swift */,
+				137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				13E0AAA525B0061C002EEEA3 /* ErrorMessages.swift in Sources */,
 				13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */,
 				130DF88025A8279C0081386A /* Constants.swift in Sources */,
+				137B2B9E25DF7E6100DB544B /* UploadIngredientsViewController.swift in Sources */,
 				13E0AAA825B016A6002EEEA3 /* HomeViewController.swift in Sources */,
 				131BE42325AC611D000974FC /* UIViewController+Ext.swift in Sources */,
 				130DF89025A82D250081386A /* BodyLabel.swift in Sources */,

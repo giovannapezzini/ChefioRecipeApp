@@ -10,21 +10,18 @@ import UIKit
 class UploadRecipeViewController: UIViewController {
     
     // MARK:  - ScrollView
-
-    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height - 80)
     
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
-        view.frame = self.view.bounds
-        view.contentSize = contentViewSize
-        view.autoresizingMask = .flexibleHeight
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.delaysContentTouches = false
         view.bounces = true
         return view
     }()
     
     lazy var contentView: UIView = {
         let view = UIView()
-        view.frame.size = contentViewSize
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -62,14 +59,16 @@ class UploadRecipeViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(cancelButton, progressLabel, imagePickerButton, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
+        contentView.addSubview(progressLabel, imagePickerButton, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
         
         let padding: CGFloat = 24
         
+        // Cancel Button
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.red, for: .normal)
         
+        // Progress Label
         progressLabel.translatesAutoresizingMaskIntoConstraints = false
         progressLabel.text = "1/2"
         progressLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -87,13 +86,25 @@ class UploadRecipeViewController: UIViewController {
         cookingDescriptionLabel.text = "(in minutes)"
         
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
             cancelButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             cancelButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            cancelButton.heightAnchor.constraint(equalToConstant: 32),
             
             progressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             progressLabel.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
             
-            imagePickerButton.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
+            imagePickerButton.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: padding),
             imagePickerButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             imagePickerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             imagePickerButton.heightAnchor.constraint(equalToConstant: 160),
@@ -107,7 +118,6 @@ class UploadRecipeViewController: UIViewController {
             
             descriptionLabel.topAnchor.constraint(equalTo: foodTextField.bottomAnchor, constant: padding),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            
             descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 14),
             descriptionTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             descriptionTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
@@ -115,17 +125,17 @@ class UploadRecipeViewController: UIViewController {
             
             cookingDurationLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: padding),
             cookingDurationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            
             cookingDescriptionLabel.centerYAnchor.constraint(equalTo: cookingDurationLabel.centerYAnchor),
             cookingDescriptionLabel.leadingAnchor.constraint(equalTo: cookingDurationLabel.trailingAnchor, constant: 5),
-            
-            cookingDurationSlider.topAnchor.constraint(equalTo: cookingDurationLabel.bottomAnchor, constant: 50),
+            cookingDurationSlider.topAnchor.constraint(equalTo: cookingDurationLabel.bottomAnchor, constant: 60),
             cookingDurationSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             cookingDurationSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            cookingDurationSlider.heightAnchor.constraint(equalToConstant: 56),
             
             nextButton.topAnchor.constraint(equalTo: cookingDurationSlider.bottomAnchor, constant: padding),
             nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
             nextButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
@@ -168,11 +178,11 @@ class UploadRecipeViewController: UIViewController {
         contentView.addSubview(recipeImageView)
         
         NSLayoutConstraint.activate([
-            recipeImageView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 32),
+            recipeImageView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 24),
             recipeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             recipeImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             recipeImageView.heightAnchor.constraint(equalToConstant: 160),
-            
+
             foodLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 24)
         ])
     }

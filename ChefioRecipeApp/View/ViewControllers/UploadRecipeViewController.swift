@@ -52,6 +52,16 @@ class UploadRecipeViewController: UIViewController {
         setupView()
         layoutUI()
         configureImagePickerView()
+        configureButton()
+    }
+    
+    func configureButton() {
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func nextButtonTapped() {
+        let uploadIngredientsVC = UploadIngredientsViewController()
+        self.navigationController?.pushViewController(uploadIngredientsVC, animated: true)
     }
     
     // MARK:  - Layout UI

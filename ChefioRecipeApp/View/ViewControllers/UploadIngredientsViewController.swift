@@ -32,6 +32,7 @@ class UploadIngredientsViewController: UIViewController {
     
     let ingredientsLabel = HeaderLabel()
     let ingredientsTableView = UITableView()
+    let placeholderData = ["Ingredients", "Ingredients 2"]
     
     let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
@@ -43,6 +44,7 @@ class UploadIngredientsViewController: UIViewController {
         
         setupView()
         layoutUI()
+        configureTableView()
     }
     
     // MARK:  - Layout UI
@@ -50,7 +52,7 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(cancelButton, progressLabel, ingredientsLabel)
+        contentView.addSubview(cancelButton, progressLabel, ingredientsLabel, ingredientsTableView)
         
         let padding: CGFloat = 24
         
@@ -67,7 +69,6 @@ class UploadIngredientsViewController: UIViewController {
         
         // Ingredients
         ingredientsLabel.text = "Ingredients"
-        
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -90,7 +91,10 @@ class UploadIngredientsViewController: UIViewController {
             
             ingredientsLabel.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: padding),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            
+            ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
+            ingredientsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            ingredientsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            ingredientsTableView.heightAnchor.constraint(equalToConstant: 150),
         ])
     }
     
@@ -100,5 +104,27 @@ class UploadIngredientsViewController: UIViewController {
         title = "Ingredients and Steps"
         view.backgroundColor = .white
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    func configureTableView() {
+        ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
+        ingredientsTableView.delegate = self
+        ingredientsTableView.dataSource = self
+        ingredientsTableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseID)
+        ingredientsTableView.separatorStyle = .none
+        ingredientsTableView.rowHeight = 56
+    }
+}
+
+extension UploadIngredientsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return placeholderData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.reuseID) as! TextFieldCell
+        cell.placeholder = placeholderData[indexPath.row]
+        cell.selectionStyle = .none
+        return cell
     }
 }

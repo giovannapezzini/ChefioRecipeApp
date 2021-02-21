@@ -41,10 +41,9 @@ class UploadIngredientsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
-        layoutUI()
         configureTableView()
+        layoutUI()
     }
     
     // MARK:  - Layout UI
@@ -107,12 +106,14 @@ class UploadIngredientsViewController: UIViewController {
     }
     
     func configureTableView() {
+        ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
-        ingredientsTableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseID)
+//        ingredientsTableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseID)
         ingredientsTableView.separatorStyle = .none
-        ingredientsTableView.rowHeight = 56
+        ingredientsTableView.backgroundColor = .blue
+        
     }
 }
 
@@ -122,9 +123,9 @@ extension UploadIngredientsViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.reuseID) as! TextFieldCell
-        cell.placeholder = placeholderData[indexPath.row]
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = placeholderData[indexPath.row]
         return cell
     }
 }

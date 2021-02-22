@@ -27,8 +27,8 @@ class UploadIngredientsViewController: UIViewController {
     
     // MARK:  - Properties
     
-    let cancelButton = UIButton()
-    let progressLabel = UILabel()
+    let progressLabel = HeaderLabel()
+    let progressNumberLabel = UILabel()
     
     let ingredientsLabel = HeaderLabel()
     let ingredientsTableView = UITableView()
@@ -52,20 +52,19 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(cancelButton, progressLabel, ingredientsLabel, ingredientsTableView)
+        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView)
         
         let padding: CGFloat = 24
         
         // Cancel Button
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(.red, for: .normal)
+        progressLabel.translatesAutoresizingMaskIntoConstraints = false
+        progressLabel.text = "Progress"
+        progressLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         // Progress Label
-        progressLabel.translatesAutoresizingMaskIntoConstraints = false
-        progressLabel.text = "1/2"
-        progressLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        progressLabel.textColor = Colors.mainTextColor
+        progressNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        progressNumberLabel.text = "1/2"
+        progressNumberLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         // Ingredients
         ingredientsLabel.text = "Ingredients"
@@ -82,14 +81,14 @@ class UploadIngredientsViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            cancelButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            cancelButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            cancelButton.heightAnchor.constraint(equalToConstant: 32),
+            progressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            progressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            progressLabel.heightAnchor.constraint(equalToConstant: 32),
             
-            progressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            progressLabel.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
+            progressNumberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            progressNumberLabel.centerYAnchor.constraint(equalTo: progressLabel.centerYAnchor),
             
-            ingredientsLabel.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: padding),
+            ingredientsLabel.topAnchor.constraint(equalTo: progressLabel.bottomAnchor, constant: padding),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
             ingredientsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),

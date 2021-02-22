@@ -33,6 +33,7 @@ class UploadIngredientsViewController: UIViewController {
     let ingredientsLabel = HeaderLabel()
     let ingredientsTableView = UITableView()
     let placeholderData = ["Ingredients", "Ingredients 2"]
+    var tableHeightConstraint: CGFloat = 90
     
     let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
@@ -93,7 +94,7 @@ class UploadIngredientsViewController: UIViewController {
             ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
             ingredientsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            ingredientsTableView.heightAnchor.constraint(equalToConstant: 150),
+            ingredientsTableView.heightAnchor.constraint(equalToConstant: tableHeightConstraint),
         ])
     }
     
@@ -110,10 +111,7 @@ class UploadIngredientsViewController: UIViewController {
         ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
-//        ingredientsTableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseID)
         ingredientsTableView.separatorStyle = .none
-        ingredientsTableView.backgroundColor = .blue
-        
     }
 }
 

@@ -27,7 +27,7 @@ class UploadIngredientsViewController: UIViewController {
     
     // MARK:  - Properties
     
-    let progressLabel = HeaderLabel()
+    let progressLabel = TagLabel()
     let progressNumberLabel = UILabel()
     
     let ingredientsLabel = HeaderLabel()
@@ -57,9 +57,7 @@ class UploadIngredientsViewController: UIViewController {
         let padding: CGFloat = 24
         
         // Cancel Button
-        progressLabel.translatesAutoresizingMaskIntoConstraints = false
         progressLabel.text = "Progress"
-        progressLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         // Progress Label
         progressNumberLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -20,12 +20,6 @@ class TagLabel: UILabel {
         }
     }
     
-    override var bounds: CGRect {
-        didSet {
-            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
-        }
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -41,6 +35,8 @@ class TagLabel: UILabel {
         self.font = UIFont(name: "Inter-Bold", size: fontSize)
     }
     
+    // MARK:  - Add Insets
+    
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in: rect.inset(by: insets))
@@ -51,7 +47,15 @@ class TagLabel: UILabel {
         return CGSize(width: size.width + leftInset + rightInset,
                       height: size.height + topInset + bottomInset)
     }
-
+    
+    override var bounds: CGRect {
+        didSet {
+            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
+        }
+    }
+    
+    // MARK:  - Configure Label
+    
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         sizeToFit()

@@ -56,10 +56,10 @@ class UploadIngredientsViewController: UIViewController {
         
         let padding: CGFloat = 24
         
-        // Cancel Button
+        // Progress Label
         progressLabel.text = "Progress"
         
-        // Progress Label
+        // Progress Number Label
         progressNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         progressNumberLabel.text = "1/2"
         progressNumberLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)

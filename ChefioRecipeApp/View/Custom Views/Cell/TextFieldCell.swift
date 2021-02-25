@@ -17,13 +17,6 @@ class TextFieldCell: UITableViewCell {
         return textField
     }()
     
-    var placeholder: String? {
-    didSet {
-             guard let item = placeholder else {return}
-        textField.placeholder = item
-        }
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -35,30 +28,22 @@ class TextFieldCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        selectionStyle = .none
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        let padding = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
-        bounds = bounds.inset(by: padding)
-    }
-    
+        
     func configure() {
         addSubview(textField)
                 
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5),
-            textField.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5),
-            textField.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 5),
-            textField.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 5),
+            textField.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            textField.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            textField.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
+            textField.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
-
 }

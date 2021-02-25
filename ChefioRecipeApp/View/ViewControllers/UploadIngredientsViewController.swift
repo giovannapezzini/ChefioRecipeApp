@@ -27,8 +27,8 @@ class UploadIngredientsViewController: UIViewController {
     
     // MARK:  - Properties
     
-    let progressLabel = TagLabel()
-    let progressNumberLabel = UILabel()
+    let progressTagLabel = TagLabel()
+    let progressNumberLabel = ProgressLabel()
     
     let ingredientsLabel = HeaderLabel()
     let ingredientsTableView = UITableView()
@@ -61,17 +61,12 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel)
+        contentView.addSubview(progressTagLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel)
         
         let padding: CGFloat = 24
         
         // Progress Label
-        progressLabel.text = "Progress"
-        
-        // Progress Number Label
-        progressNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        progressNumberLabel.text = "1/2"
-        progressNumberLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        progressTagLabel.text = "Progress"
         
         // Ingredients
         ingredientsLabel.text = "Ingredients"
@@ -101,14 +96,14 @@ class UploadIngredientsViewController: UIViewController {
             contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
-            progressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            progressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            progressLabel.heightAnchor.constraint(equalToConstant: 32),
+            progressTagLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            progressTagLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            progressTagLabel.heightAnchor.constraint(equalToConstant: 32),
             
             progressNumberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            progressNumberLabel.centerYAnchor.constraint(equalTo: progressLabel.centerYAnchor),
+            progressNumberLabel.centerYAnchor.constraint(equalTo: progressTagLabel.centerYAnchor),
             
-            ingredientsLabel.topAnchor.constraint(equalTo: progressLabel.bottomAnchor, constant: padding),
+            ingredientsLabel.topAnchor.constraint(equalTo: progressTagLabel.bottomAnchor, constant: padding),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 14),
             ingredientsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),

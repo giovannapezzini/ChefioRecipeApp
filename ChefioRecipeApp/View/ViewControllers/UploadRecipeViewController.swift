@@ -27,8 +27,8 @@ class UploadRecipeViewController: UIViewController {
     
     // MARK:  - Properties
     
-    let progressLabel = TagLabel()
-    let progressNumberLabel = UILabel()
+    let progressTagLabel = TagLabel()
+    let progressNumberLabel = ProgressLabel(pageNumber: 1)
     
     let imagePickerButton = ImagePickerButton()
 
@@ -69,18 +69,12 @@ class UploadRecipeViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(progressLabel, progressNumberLabel, imagePickerButton, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
+        contentView.addSubview(progressTagLabel, progressNumberLabel, imagePickerButton, foodLabel, foodTextField, descriptionLabel, descriptionTextField, cookingDurationLabel, cookingDescriptionLabel, cookingDurationSlider, nextButton)
         
         let padding: CGFloat = 24
         
         // Progress Label
-        progressLabel.text = "Progress"
-        
-        // Progress Number Label
-        progressNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        progressNumberLabel.text = "1/2"
-        progressNumberLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        progressNumberLabel.textColor = Colors.mainTextColor
+        progressTagLabel.text = "Progress"
         
         // Food Name
         foodLabel.text = "Food Name"
@@ -105,14 +99,14 @@ class UploadRecipeViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            progressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            progressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            progressLabel.heightAnchor.constraint(equalToConstant: 32),
+            progressTagLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            progressTagLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            progressTagLabel.heightAnchor.constraint(equalToConstant: 32),
             
             progressNumberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            progressNumberLabel.centerYAnchor.constraint(equalTo: progressLabel.centerYAnchor),
+            progressNumberLabel.centerYAnchor.constraint(equalTo: progressTagLabel.centerYAnchor),
             
-            imagePickerButton.topAnchor.constraint(equalTo: progressLabel.bottomAnchor, constant: padding),
+            imagePickerButton.topAnchor.constraint(equalTo: progressTagLabel.bottomAnchor, constant: padding),
             imagePickerButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             imagePickerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             imagePickerButton.heightAnchor.constraint(equalToConstant: 160),
@@ -186,7 +180,7 @@ class UploadRecipeViewController: UIViewController {
         contentView.addSubview(recipeImageView)
         
         NSLayoutConstraint.activate([
-            recipeImageView.topAnchor.constraint(equalTo: progressLabel.bottomAnchor, constant: 24),
+            recipeImageView.topAnchor.constraint(equalTo: progressTagLabel.bottomAnchor, constant: 24),
             recipeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             recipeImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             recipeImageView.heightAnchor.constraint(equalToConstant: 160),

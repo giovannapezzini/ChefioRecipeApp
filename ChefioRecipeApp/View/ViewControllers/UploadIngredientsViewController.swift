@@ -36,6 +36,7 @@ class UploadIngredientsViewController: UIViewController {
     let placeholderData = ["Ingredients", "Ingredients 2", "3"]
     var heightConstraint: NSLayoutConstraint?
     var tableHeightConstraint: CGFloat = 90
+    var count = 2
     
     let addIngredientsButton = SecondaryButton(title: "Ingredients", borderColor: Colors.outline)
     
@@ -109,11 +110,11 @@ class UploadIngredientsViewController: UIViewController {
             
             ingredientsLabel.topAnchor.constraint(equalTo: progressLabel.bottomAnchor, constant: padding),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
+            ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 14),
             ingredientsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             
-            addIngredientsButton.topAnchor.constraint(equalTo: ingredientsTableView.bottomAnchor, constant: padding),
+            addIngredientsButton.topAnchor.constraint(equalTo: ingredientsTableView.bottomAnchor, constant: 14),
             addIngredientsButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             addIngredientsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             addIngredientsButton.heightAnchor.constraint(equalToConstant: 56),
@@ -137,25 +138,26 @@ class UploadIngredientsViewController: UIViewController {
     }
     
     func configureTableView() {
-        ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        ingredientsTableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseID)
         ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         ingredientsTableView.separatorStyle = .none
         ingredientsTableView.backgroundColor = .blue
+        ingredientsTableView.rowHeight = 76
+        ingredientsTableView.isScrollEnabled = false
     }
 }
 
 extension UploadIngredientsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeholderData.count
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.reuseID, for: indexPath) as! TextFieldCell
         
-        cell.textLabel?.text = placeholderData[indexPath.row]
-        heightConstraint?.constant = ingredientsTableView.contentSize.height
+        heightConstraint?.constant = ingredientsTableView.rowHeight * CGFloat(count)
         return cell
     }
 }

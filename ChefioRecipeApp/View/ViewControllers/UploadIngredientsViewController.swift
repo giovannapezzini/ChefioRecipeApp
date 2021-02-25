@@ -32,9 +32,9 @@ class UploadIngredientsViewController: UIViewController {
     
     let ingredientsLabel = HeaderLabel()
     let ingredientsTableView = UITableView()
-    let placeholderData = ["Ingredients", "Ingredients 2"]
+    let placeholderData = ["Ingredients", "Ingredients 2", "3"]
+    var heightConstraint: NSLayoutConstraint?
     var tableHeightConstraint: CGFloat = 90
-    
     let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
     
@@ -67,6 +67,11 @@ class UploadIngredientsViewController: UIViewController {
         // Ingredients
         ingredientsLabel.text = "Ingredients"
         
+        // Constraints Priority
+        heightConstraint = ingredientsTableView.heightAnchor.constraint(equalToConstant: tableHeightConstraint)
+        heightConstraint?.priority = UILayoutPriority(999)
+        heightConstraint?.isActive = true
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -77,7 +82,8 @@ class UploadIngredientsViewController: UIViewController {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             progressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             progressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
@@ -91,7 +97,6 @@ class UploadIngredientsViewController: UIViewController {
             ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
             ingredientsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            ingredientsTableView.heightAnchor.constraint(equalToConstant: tableHeightConstraint),
         ])
     }
     
@@ -109,6 +114,7 @@ class UploadIngredientsViewController: UIViewController {
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         ingredientsTableView.separatorStyle = .none
+        ingredientsTableView.backgroundColor = .blue
     }
 }
 
@@ -121,6 +127,7 @@ extension UploadIngredientsViewController: UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = placeholderData[indexPath.row]
+        heightConstraint?.constant = ingredientsTableView.contentSize.height
         return cell
     }
 }

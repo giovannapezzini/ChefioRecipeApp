@@ -33,6 +33,7 @@
 		1347096D25AD25F0002C4078 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1347096C25AD25F0002C4078 /* AppBanner.png */; };
 		135062A925AAF16300339668 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135062A825AAF16300339668 /* SignUpViewController.swift */; };
 		1358B3A525E5B3C6005EDE57 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1358B3A425E5B3C6005EDE57 /* TagLabel.swift */; };
+		135F79A925E72FF500B202F0 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F79A825E72FF500B202F0 /* SecondaryButton.swift */; };
 		1373BBCA25E0A78000AE357B /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373BBC925E0A78000AE357B /* TextFieldCell.swift */; };
 		137B2B9E25DF7E6100DB544B /* UploadIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */; };
 		137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D655425D9F9410011C148 /* RecipeViewModel.swift */; };
@@ -73,6 +74,7 @@
 		1347096C25AD25F0002C4078 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		135062A825AAF16300339668 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1358B3A425E5B3C6005EDE57 /* TagLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
+		135F79A825E72FF500B202F0 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		1373BBC925E0A78000AE357B /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIngredientsViewController.swift; sourceTree = "<group>"; };
 		137D655425D9F9410011C148 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				130DF87B25A8274C0081386A /* PrimaryButton.swift */,
+				135F79A825E72FF500B202F0 /* SecondaryButton.swift */,
 				1314C05C25DE260F0023E3E3 /* ImagePickerButton.swift */,
 			);
 			path = Buttons;
@@ -458,6 +461,7 @@
 				130DF89325A82DFA0081386A /* SignInViewController.swift in Sources */,
 				1314C05725DDFE700023E3E3 /* Slider.swift in Sources */,
 				135062A925AAF16300339668 /* SignUpViewController.swift in Sources */,
+				135F79A925E72FF500B202F0 /* SecondaryButton.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,

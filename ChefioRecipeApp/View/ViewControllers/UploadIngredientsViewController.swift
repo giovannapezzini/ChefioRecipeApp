@@ -38,6 +38,8 @@ class UploadIngredientsViewController: UIViewController {
     var tableHeightConstraint: CGFloat = 90
     
     let addIngredientsButton = SecondaryButton(title: "Ingredients", borderColor: Colors.outline)
+    
+    let separatorView = UIView()
 
     let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
@@ -56,7 +58,7 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton)
+        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView)
         
         let padding: CGFloat = 24
         
@@ -75,6 +77,10 @@ class UploadIngredientsViewController: UIViewController {
         heightConstraint = ingredientsTableView.heightAnchor.constraint(equalToConstant: tableHeightConstraint)
         heightConstraint?.priority = UILayoutPriority(999)
         heightConstraint?.isActive = true
+        
+        // Separator View
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.backgroundColor = Colors.form
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -105,7 +111,12 @@ class UploadIngredientsViewController: UIViewController {
             addIngredientsButton.topAnchor.constraint(equalTo: ingredientsTableView.bottomAnchor, constant: padding),
             addIngredientsButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             addIngredientsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            addIngredientsButton.heightAnchor.constraint(equalToConstant: 56)
+            addIngredientsButton.heightAnchor.constraint(equalToConstant: 56),
+            
+            separatorView.topAnchor.constraint(equalTo: addIngredientsButton.bottomAnchor, constant: padding),
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 8)
         ])
     }
     

@@ -40,7 +40,9 @@ class UploadIngredientsViewController: UIViewController {
     let addIngredientsButton = SecondaryButton(title: "Ingredients", borderColor: Colors.outline)
     
     let separatorView = UIView()
-
+    
+    let stepsLabel = HeaderLabel()
+    
     let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
     
@@ -58,7 +60,7 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView)
+        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel)
         
         let padding: CGFloat = 24
         
@@ -81,6 +83,9 @@ class UploadIngredientsViewController: UIViewController {
         // Separator View
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         separatorView.backgroundColor = Colors.form
+        
+        // Steps Label
+        stepsLabel.text = "Steps"
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -116,7 +121,10 @@ class UploadIngredientsViewController: UIViewController {
             separatorView.topAnchor.constraint(equalTo: addIngredientsButton.bottomAnchor, constant: padding),
             separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 8)
+            separatorView.heightAnchor.constraint(equalToConstant: 8),
+            
+            stepsLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: padding),
+            stepsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding)
         ])
     }
     

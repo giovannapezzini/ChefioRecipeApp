@@ -286,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				1370F0A925DC47F300E03791 /* Custom Views */,
-				13E1D98325DB4E0800BD278C /* TabBar */,
 				130DF89725A82E530081386A /* ViewControllers */,
 			);
 			path = View;
@@ -299,13 +298,6 @@
 				1373BBC925E0A78000AE357B /* TextFieldCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		13E1D98325DB4E0800BD278C /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		94946CEA719E1335E9B7CA92 /* Pods */ = {

@@ -9,7 +9,7 @@ import UIKit
 
 class TextView: UITextView, UITextViewDelegate {
     
-    let placeholderLabel = UILabel()
+    var placeholderLabel = UILabel()
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)

@@ -11,6 +11,7 @@ class StepContainerView: UIView {
     
     let numberLabel = UILabel()
     let textView = TextView()
+    let addImageButton = IconButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +29,7 @@ class StepContainerView: UIView {
     }
     
     private func configure() {
-        addSubview(numberLabel, textView)
+        addSubview(numberLabel, textView, addImageButton)
         translatesAutoresizingMaskIntoConstraints = false
         numberLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -52,7 +53,12 @@ class StepContainerView: UIView {
             textView.topAnchor.constraint(equalTo: self.topAnchor),
             textView.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 8),
             textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40)
+            
+            addImageButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 8),
+            addImageButton.leadingAnchor.constraint(equalTo: textView.leadingAnchor),
+            addImageButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            addImageButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            addImageButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
 }

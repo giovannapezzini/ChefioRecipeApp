@@ -43,6 +43,7 @@ class UploadIngredientsViewController: UIViewController {
     let separatorView = UIView()
     
     let stepsLabel = HeaderLabel()
+    let stepsContainerView = StepContainerView(stepNumber: 1)
     
     let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
@@ -61,7 +62,7 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel)
+        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel, stepsContainerView)
         
         let padding: CGFloat = 24
         
@@ -120,7 +121,11 @@ class UploadIngredientsViewController: UIViewController {
             separatorView.heightAnchor.constraint(equalToConstant: 8),
             
             stepsLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: padding),
-            stepsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding)
+            stepsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            stepsContainerView.topAnchor.constraint(equalTo: stepsLabel.bottomAnchor, constant: padding),
+            stepsContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            stepsContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            stepsContainerView.heightAnchor.constraint(equalToConstant: 170)
         ])
     }
     

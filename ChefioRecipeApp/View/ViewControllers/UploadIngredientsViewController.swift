@@ -45,7 +45,6 @@ class UploadIngredientsViewController: UIViewController {
     let stepsLabel = HeaderLabel()
     let stepsContainerView = StepContainerView(stepNumber: 1)
     
-    let backButton = PrimaryButton(title: "Back", backgroundColor: Colors.form)
     let uploadButton = PrimaryButton(title: "Upload", backgroundColor: Colors.primaryColor)
     
     // MARK:  - View Lifecycle
@@ -62,7 +61,7 @@ class UploadIngredientsViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel, stepsContainerView)
+        contentView.addSubview(progressLabel, progressNumberLabel, ingredientsLabel, ingredientsTableView, addIngredientsButton, separatorView, stepsLabel, stepsContainerView, uploadButton)
         
         let padding: CGFloat = 24
         
@@ -94,8 +93,7 @@ class UploadIngredientsViewController: UIViewController {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             progressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             progressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
@@ -125,7 +123,13 @@ class UploadIngredientsViewController: UIViewController {
             stepsContainerView.topAnchor.constraint(equalTo: stepsLabel.bottomAnchor, constant: padding),
             stepsContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             stepsContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            stepsContainerView.heightAnchor.constraint(equalToConstant: 170)
+            stepsContainerView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.22),
+            
+            uploadButton.topAnchor.constraint(equalTo: stepsContainerView.bottomAnchor, constant: padding),
+            uploadButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            uploadButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            uploadButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
+            uploadButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
     

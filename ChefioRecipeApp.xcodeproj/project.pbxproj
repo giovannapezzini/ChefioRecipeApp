@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130A368A25E99EEA008811C1 /* StepContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130A368925E99EEA008811C1 /* StepContainerView.swift */; };
 		130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85B25A81F1F0081386A /* AppDelegate.swift */; };
 		130DF85E25A81F1F0081386A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85D25A81F1F0081386A /* SceneDelegate.swift */; };
 		130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130DF85F25A81F1F0081386A /* OnboardingViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		130A368925E99EEA008811C1 /* StepContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepContainerView.swift; sourceTree = "<group>"; };
 		130DF85825A81F1F0081386A /* ChefioRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefioRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		130DF85B25A81F1F0081386A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		130DF85D25A81F1F0081386A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 		1370F0AA25DC480200E03791 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				130A368925E99EEA008811C1 /* StepContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				135F79A925E72FF500B202F0 /* SecondaryButton.swift in Sources */,
 				130DF85C25A81F1F0081386A /* AppDelegate.swift in Sources */,
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
+				130A368A25E99EEA008811C1 /* StepContainerView.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,
 				13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */,
 				130DF87C25A8274C0081386A /* PrimaryButton.swift in Sources */,

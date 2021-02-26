@@ -44,6 +44,8 @@ class StepContainerView: UIView {
         numberLabel.layer.borderWidth = 5
         numberLabel.layer.borderColor = Colors.mainTextColor.cgColor
         
+        textView.placeholderLabel.text = "Write instructions..."
+        
         NSLayoutConstraint.activate([
             numberLabel.topAnchor.constraint(equalTo: self.topAnchor),
             numberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),

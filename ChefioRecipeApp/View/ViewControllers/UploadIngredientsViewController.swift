@@ -53,6 +53,7 @@ class UploadIngredientsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         configureTableView()
+        configureUploadButton()
         layoutUI()
     }
     
@@ -140,6 +141,20 @@ class UploadIngredientsViewController: UIViewController {
         view.backgroundColor = .white
         self.hideKeyboardWhenTappedAround()
     }
+    
+    // MARK:  - Configure Button
+    
+    func configureUploadButton() {
+        uploadButton.addTarget(self, action: #selector(uploadButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func uploadButtonTapped() {
+        let successPopUpView = SuccessPopUpView()
+        successPopUpView.frame = view.bounds
+        view.addSubview(successPopUpView)
+    }
+    
+    // MARK:  - Configure Table View
     
     func configureTableView() {
         ingredientsTableView.register(TextFieldCell.self, forCellReuseIdentifier: TextFieldCell.reuseID)

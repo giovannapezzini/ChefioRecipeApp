@@ -25,7 +25,6 @@
 		1314C05D25DE260F0023E3E3 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314C05C25DE260F0023E3E3 /* ImagePickerButton.swift */; };
 		1314E7A925AD938700780B37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1314E7A825AD938700780B37 /* GoogleService-Info.plist */; };
 		131723A725E9BAEC00D8C3DC /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131723A625E9BAEC00D8C3DC /* IconButton.swift */; };
-		131723AA25E9CEC600D8C3DC /* SuccessPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131723A925E9CEC600D8C3DC /* SuccessPopUpView.swift */; };
 		131BE42325AC611D000974FC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BE42225AC611D000974FC /* UIViewController+Ext.swift */; };
 		132E591825E8611D00AA9217 /* ProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E591725E8611D00AA9217 /* ProgressLabel.swift */; };
 		1335EA4D25A8441E00024059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EB6F5225A83C3000ACE243 /* Assets.xcassets */; };
@@ -41,6 +40,7 @@
 		1373BBCA25E0A78000AE357B /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1373BBC925E0A78000AE357B /* TextFieldCell.swift */; };
 		137B2B9E25DF7E6100DB544B /* UploadIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */; };
 		137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D655425D9F9410011C148 /* RecipeViewModel.swift */; };
+		13A43DFE25EC6FCE00FCAE09 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A43DFD25EC6FCE00FCAE09 /* PopUpViewController.swift */; };
 		13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C5F23125CCD17100567D2A /* RecipeCell.swift */; };
 		13E0AA8925AFC171002EEEA3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AA8825AFC171002EEEA3 /* Firebase.swift */; };
 		13E0AAA225AFCA23002EEEA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E0AAA125AFCA23002EEEA3 /* Validation.swift */; };
@@ -70,7 +70,6 @@
 		1314C05C25DE260F0023E3E3 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 		1314E7A825AD938700780B37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		131723A625E9BAEC00D8C3DC /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
-		131723A925E9CEC600D8C3DC /* SuccessPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopUpView.swift; sourceTree = "<group>"; };
 		131BE42225AC611D000974FC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		13268B1225A841FC00E49EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		132E591725E8611D00AA9217 /* ProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressLabel.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		1373BBC925E0A78000AE357B /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIngredientsViewController.swift; sourceTree = "<group>"; };
 		137D655425D9F9410011C148 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		13A43DFD25EC6FCE00FCAE09 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		13C5F23125CCD17100567D2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		13E0AA8825AFC171002EEEA3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		13E0AAA125AFCA23002EEEA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
@@ -209,6 +209,7 @@
 				13E0AAA725B016A6002EEEA3 /* HomeViewController.swift */,
 				13E1D98025DB4B4F00BD278C /* UploadRecipeViewController.swift */,
 				137B2B9D25DF7E6100DB544B /* UploadIngredientsViewController.swift */,
+				13A43DFD25EC6FCE00FCAE09 /* PopUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -281,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				130A368925E99EEA008811C1 /* StepContainerView.swift */,
-				131723A925E9CEC600D8C3DC /* SuccessPopUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,7 +460,6 @@
 				13E1D98125DB4B4F00BD278C /* UploadRecipeViewController.swift in Sources */,
 				132E591825E8611D00AA9217 /* ProgressLabel.swift in Sources */,
 				1314C05325DDECA70023E3E3 /* TextView.swift in Sources */,
-				131723AA25E9CEC600D8C3DC /* SuccessPopUpView.swift in Sources */,
 				130DF88725A82C2D0081386A /* HeaderLabel.swift in Sources */,
 				130DF86025A81F1F0081386A /* OnboardingViewController.swift in Sources */,
 				137D655525D9F9410011C148 /* RecipeViewModel.swift in Sources */,
@@ -473,6 +472,7 @@
 				1335EA5925A8589E00024059 /* UIStackView+Ext.swift in Sources */,
 				130A368A25E99EEA008811C1 /* StepContainerView.swift in Sources */,
 				130DF8A425A837140081386A /* TextField.swift in Sources */,
+				13A43DFE25EC6FCE00FCAE09 /* PopUpViewController.swift in Sources */,
 				13C5F23225CCD17100567D2A /* RecipeCell.swift in Sources */,
 				130DF87C25A8274C0081386A /* PrimaryButton.swift in Sources */,
 				134198AA25B1270D000D98F7 /* Recipe.swift in Sources */,

@@ -16,22 +16,27 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         view.addSubview(containerView)
-
+        configureContainerView()
+    }
+    
+    func configureContainerView() {
+        
+        // Container
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.clipsToBounds = true
         containerView.layer.cornerRadius = 24
         containerView.backgroundColor = .white
         containerView.addSubview(titleLabel, bodyLabel, dismissButton)
         
+        // Labels
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = "Upload Success 🎉"
-        
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.text = "Your recipe has been uploaded, you can see it on your profile"
         
+        // Button
         dismissButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
         let padding: CGFloat = 40

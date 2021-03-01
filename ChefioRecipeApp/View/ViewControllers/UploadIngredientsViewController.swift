@@ -149,9 +149,11 @@ class UploadIngredientsViewController: UIViewController {
     }
     
     @objc func uploadButtonTapped() {
-        let successPopUpView = SuccessPopUpView()
-        successPopUpView.frame = view.bounds
-        view.addSubview(successPopUpView)
+        let popUpVC = PopUpViewController()
+        
+        popUpVC.modalTransitionStyle = .crossDissolve
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        self.present(popUpVC, animated: true, completion: nil)
     }
     
     // MARK:  - Configure Table View

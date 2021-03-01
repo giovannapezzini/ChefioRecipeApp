@@ -91,6 +91,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.set(recipe: recipe)
         
         return cell
-                
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailRecipeViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

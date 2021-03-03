@@ -29,7 +29,16 @@ class ProfileViewController: UIViewController {
     
     let profileImage = UIImageView()
     let userNameLabel = HeaderLabel()
-    let stackView = UIStackView()
+    
+    var stackView = UIStackView()
+    
+    let recipeCountLabel = HeaderLabel(textAlignment: .center, fontSize: 17)
+    let followingCountLabel = HeaderLabel(textAlignment: .center, fontSize: 17)
+    let followersCountLabel = HeaderLabel(textAlignment: .center, fontSize: 17)
+    
+    let recipeLabel = BodyLabel(textAlignment: .center, fontSize: 12)
+    let followingLabel = BodyLabel(textAlignment: .center, fontSize: 12)
+    let followersLabel = BodyLabel(textAlignment: .center, fontSize: 12)
     
     // MARK:  - View Lifecycle
     
@@ -44,14 +53,24 @@ class ProfileViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(profileImage, userNameLabel)
+        contentView.addSubview(profileImage, userNameLabel, stackView)
         
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.image = UIImage(named: "ProfileImage")
         
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.text = "Name"
-            
+        
+        recipeLabel.text = "Recipes"
+        recipeCountLabel.text = "32"
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView = UIStackView(arrangedSubviews: [recipeLabel, recipeCountLabel])
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        stackView.spacing = 30.0
+        
         let padding: CGFloat = 24
         
         NSLayoutConstraint.activate([
@@ -72,7 +91,11 @@ class ProfileViewController: UIViewController {
             profileImage.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
             
             userNameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: padding),
-            userNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            userNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+//            stackView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: padding),
+            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
     }
 }

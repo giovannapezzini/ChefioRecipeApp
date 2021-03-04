@@ -29,9 +29,7 @@ class ProfileViewController: UIViewController {
     
     let profileImage = UIImageView()
     let userNameLabel = HeaderLabel()
-    
-    var stackView = UIStackView()
-    
+        
     let recipeCountLabel = HeaderLabel(textAlignment: .center, fontSize: 17)
     let followingCountLabel = HeaderLabel(textAlignment: .center, fontSize: 17)
     let followersCountLabel = HeaderLabel(textAlignment: .center, fontSize: 17)
@@ -53,7 +51,7 @@ class ProfileViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(profileImage, userNameLabel, stackView)
+        contentView.addSubview(profileImage, userNameLabel)
         
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.image = UIImage(named: "ProfileImage")
@@ -64,13 +62,26 @@ class ProfileViewController: UIViewController {
         recipeLabel.text = "Recipes"
         recipeCountLabel.text = "32"
         
+        //Text Label
+        let textLabel = UILabel()
+        textLabel.backgroundColor = UIColor.yellow
+        textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        textLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        textLabel.text  = "Hi World"
+        textLabel.textAlignment = .center
+
+        //Stack View
+        let stackView   = UIStackView()
+        stackView.axis  = NSLayoutConstraint.Axis.vertical
+        stackView.distribution  = UIStackView.Distribution.equalSpacing
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.spacing   = 16.0
+
+        stackView.addArrangedSubview(textLabel)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView = UIStackView(arrangedSubviews: [recipeLabel, recipeCountLabel])
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .center
-        stackView.spacing = 30.0
-        
+
+        contentView.addSubview(stackView)
+
         let padding: CGFloat = 24
         
         NSLayoutConstraint.activate([
@@ -93,9 +104,8 @@ class ProfileViewController: UIViewController {
             userNameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: padding),
             userNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-//            stackView.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: padding),
+            stackView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: padding),
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
     }
 }

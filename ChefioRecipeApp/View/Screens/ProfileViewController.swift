@@ -108,11 +108,11 @@ class ProfileViewController: UIViewController {
         recipeLabel.text = "Recipes"
         
         // Following Label
-        followingCountLabel.text = "32"
+        followingCountLabel.text = "782"
         followingLabel.text = "Following"
         
         // Followers Label
-        followersCountLabel.text = "32"
+        followersCountLabel.text = "1.287"
         followersLabel.text = "Followers"
         
         //Stack View

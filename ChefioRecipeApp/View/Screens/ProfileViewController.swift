@@ -82,6 +82,13 @@ class ProfileViewController: UIViewController {
         return stackView
     }()
     
+    lazy var separatorView: UIView = {
+        let separatorView = UIView()
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.backgroundColor = Colors.form
+        return separatorView
+    }()
+    
     // MARK:  - View Lifecycle
     
     override func viewDidLoad() {
@@ -95,7 +102,7 @@ class ProfileViewController: UIViewController {
     func layoutUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(profileImage, userNameLabel)
+        contentView.addSubview(profileImage, userNameLabel, stackView, separatorView)
         
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.image = UIImage(named: "ProfileImage")
@@ -115,9 +122,6 @@ class ProfileViewController: UIViewController {
         followersCountLabel.text = "1.287"
         followersLabel.text = "Followers"
         
-        //Stack View
-        contentView.addSubview(stackView)
-
         let padding: CGFloat = 24
         
         NSLayoutConstraint.activate([
@@ -157,6 +161,11 @@ class ProfileViewController: UIViewController {
             
             stackView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: padding),
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+            separatorView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: padding),
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 8),
         ])
     }
 }

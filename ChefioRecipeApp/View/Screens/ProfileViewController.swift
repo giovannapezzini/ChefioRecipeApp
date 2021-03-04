@@ -105,27 +105,15 @@ class ProfileViewController: UIViewController {
         
         // Recipe Label
         recipeCountLabel.text = "32"
-        recipeCountLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        recipeCountLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         recipeLabel.text = "Recipes"
-        recipeLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        recipeLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         
         // Following Label
         followingCountLabel.text = "32"
-        followingCountLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        followingCountLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         followingLabel.text = "Following"
-        followingLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        followingLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         
         // Followers Label
         followersCountLabel.text = "32"
-        followersCountLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        followersCountLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         followersLabel.text = "Followers"
-        followersLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        followersLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         
         //Stack View
         contentView.addSubview(stackView)
@@ -151,6 +139,21 @@ class ProfileViewController: UIViewController {
             
             userNameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: padding),
             userNameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+            recipeCountLabel.widthAnchor.constraint(equalToConstant: 60),
+            recipeCountLabel.heightAnchor.constraint(equalToConstant: 20),
+            recipeLabel.widthAnchor.constraint(equalToConstant: 60),
+            recipeLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            followingLabel.widthAnchor.constraint(equalToConstant: 60),
+            followingLabel.heightAnchor.constraint(equalToConstant: 20),
+            followingCountLabel.widthAnchor.constraint(equalToConstant: 60),
+            followingCountLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            followersLabel.widthAnchor.constraint(equalToConstant: 60),
+            followersLabel.heightAnchor.constraint(equalToConstant: 20),
+            followersCountLabel.widthAnchor.constraint(equalToConstant: 60),
+            followersCountLabel.heightAnchor.constraint(equalToConstant: 20),
             
             stackView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: padding),
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),

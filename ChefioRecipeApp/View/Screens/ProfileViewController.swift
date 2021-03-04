@@ -38,6 +38,17 @@ class ProfileViewController: UIViewController {
     let followingLabel = BodyLabel(textAlignment: .center, fontSize: 12)
     let followersLabel = BodyLabel(textAlignment: .center, fontSize: 12)
     
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis  = NSLayoutConstraint.Axis.vertical
+        stackView.distribution  = UIStackView.Distribution.equalSpacing
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.spacing   = 16.0
+        stackView.addArrangedSubview(recipeCountLabel, recipeLabel, followingCountLabel, followingLabel, followersCountLabel, followersLabel)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     // MARK:  - View Lifecycle
     
     override func viewDidLoad() {
@@ -59,27 +70,31 @@ class ProfileViewController: UIViewController {
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.text = "Name"
         
-        recipeLabel.text = "Recipes"
+        // Recipe Label
         recipeCountLabel.text = "32"
+        recipeCountLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        recipeCountLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        recipeLabel.text = "Recipes"
+        recipeLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        recipeLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         
-        //Text Label
-        let textLabel = UILabel()
-        textLabel.backgroundColor = UIColor.yellow
-        textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        textLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-        textLabel.text  = "Hi World"
-        textLabel.textAlignment = .center
-
+        // Following Label
+        followingCountLabel.text = "32"
+        followingCountLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        followingCountLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        followingLabel.text = "Following"
+        followingLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        followingLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        
+        // Followers Label
+        followersCountLabel.text = "32"
+        followersCountLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        followersCountLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        followersLabel.text = "Followers"
+        followersLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        followersLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        
         //Stack View
-        let stackView   = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 16.0
-
-        stackView.addArrangedSubview(textLabel)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
         contentView.addSubview(stackView)
 
         let padding: CGFloat = 24
